@@ -3,10 +3,12 @@ import { TListingCosts, TListing, TListings, TVendor, TVendors } from './listing
 import { TProduct, TProducts } from './product.js';
 import { TProtocolRowCosts, TProtocolRow, TProtocol } from './protocol.js';
 import { TTopic, IBookRef, IPostRef, TRef } from './ref.js';
+import { TUnit, TUnits, TUnitConversion, TUnitConversions } from './unit.js';
 
 export {
   TCountry, TCountries, TListingCosts,
   TListing, TListings, TVendor, TVendors,
   TProduct, TProducts,
   TProtocolRowCosts, TProtocolRow, TProtocol,
-  TTopic, IBookRef, IPostRef, TRef };
+  TTopic, IBookRef, IPostRef, TRef,
+  TUnit, TUnits, TUnitConversion, TUnitConversions };
