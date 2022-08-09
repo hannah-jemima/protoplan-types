@@ -6,7 +6,7 @@ export type TTopic =
   name: string
 }
 
-export interface IRef
+interface IRef
 {
   refId: number;
   title: string;
