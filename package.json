@@ -1,9 +1,9 @@
 {
   "name": "@protoplan/types",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "",
-  "types": "index.d.ts",
+  "types": "./lib/index.d.ts",
   "module": "./lib/index.js",
   "scripts": {
     "build": "tsc",
