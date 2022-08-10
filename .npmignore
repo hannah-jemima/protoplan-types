@@ -1,2 +1,3 @@
-src/
-lib/types/
+/src
+/lib/types
+!/lib/types/index.d.ts
