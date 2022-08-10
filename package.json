@@ -1,13 +1,14 @@
 {
   "name": "@protoplan/types",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/types/index.d.ts",
   "module": "./lib/index.js",
   "scripts": {
     "build": "npm i & tsc & tsc --declaration --outDir ./lib/types --emitDeclarationOnly",
-    "prepublishOnly": "npm run build",
+    "commit": "git add . & git commit -m 'publish'",
+    "prepublishOnly": "npm run build & npm run commit",
     "publish": "npm publish --access public"
   },
   "files": [
