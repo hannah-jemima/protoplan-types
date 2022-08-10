@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./lib",
-    "declaration": true
+    //"declaration": true
   },
   "include": [
     "src"
