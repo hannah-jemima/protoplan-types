@@ -1,3 +1,5 @@
-/src
-/lib/types
-!/lib/types/index.d.ts
+src
+lib/*
+!lib/types
+lib/types/*
+!lib/types/index.d.ts
