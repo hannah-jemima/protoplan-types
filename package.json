@@ -1,19 +1,15 @@
 {
   "name": "@protoplan/types",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "",
-  "types": "./lib/types/index.d.ts",
   "module": "",
   "scripts": {
-    "build": "npm i & tsc & tsc --declaration --outDir ./lib/types --emitDeclarationOnly",
+    "build": "npm i",
     "commit": "git add . & git commit -m 'pub'",
     "prepublishOnly": "npm run build & npm run commit",
     "publish": "npm publish --access public"
   },
-  "files": [
-    "lib/"
-  ],
   "dependencies": {
     "@types/node-dijkstra": "^2.5.2",
     "node-dijkstra": "^2.5.0"
