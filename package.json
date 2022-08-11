@@ -1,8 +1,8 @@
 {
   "name": "@protoplan/types",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
-  "main": "./index.d.ts",
+  "main": "./index.js",
   "types": "./index.d.ts",
   "module": "",
   "scripts": {
