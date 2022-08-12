@@ -56,6 +56,18 @@ export interface TListing extends TListingCosts {
   deliveryCountryId: number;
 }
 export declare type TListings = TListing[];
+
+export interface TNewListing
+{
+  name: string,
+  productId: number,
+  vendorId: number,
+  vendorName: string,
+  price: number,
+  currencyId: number | null | undefined,
+  url: string
+}
+
 export interface TVendor {
   vendorId: number;
   name: string;
