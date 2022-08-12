@@ -20,6 +20,16 @@ export interface TProduct {
 }
 export declare type TProducts = TProduct[];
 
+export interface TNewProduct
+{
+  name: string,
+  brandId: number,
+  brandName: string,
+  amount: number,
+  amountUnitId: number,
+  recDose?: number,
+  recDoseUnitId?: number
+}
 
 export declare type TListingCosts = {
   listingId: number;
