@@ -38,7 +38,7 @@ export declare type TListingCosts = {
   listingCurrencyCode: string;
   exchangeRate: number;
   deliveryPerProduct: number | null;
-  deliveryPrice: number | null;
+  deliveryPrice: number;
   bundleId: number | null;
   quantity: number;
   nBundleProducts: number;
@@ -46,7 +46,7 @@ export declare type TListingCosts = {
   baseTax: number | null;
   taxPercent: number | null;
   taxBracketEnd: number | null;
-  basketLimit: number | null;
+  basketLimit: number;
   userCurrencyCode: string;
   userCountryId: number;
   cost: number;

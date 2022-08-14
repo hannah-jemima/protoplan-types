@@ -1,15 +1,15 @@
 {
   "name": "@protoplan/types",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "",
   "main": "./index.js",
   "types": "./index.d.ts",
   "module": "",
   "scripts": {
     "build": "npm update",
-    "commit": "git add . & git commit -m 'pub'",
+    "commit": "git add . & git commit -m publishing",
     "prepublishOnly": "npm run build & npm run commit",
-    "publish": "npm publish --access public"
+    "pub": "npm publish --access public"
   },
   "dependencies": {
     "@types/node-dijkstra": "^2.5.2",
