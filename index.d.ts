@@ -105,7 +105,7 @@ export interface TProtocolRowCostCalculationData extends TListingCostCalculation
   daysPerMonth: number;
 }
 
-export interface TProtocolRowCosts extends TProtocolRowCostCalculationData
+export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalculationData
 {
   productsPerMonth: number;
   listingsPerMonth: number;
