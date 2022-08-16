@@ -31,10 +31,12 @@ export interface TNewProduct
   recDoseUnitId?: number
 }
 
-export declare type TListingCosts = {
+export declare type TListingCosts =
+{
   listingId: number;
   productId: number;
   price: number;
+  amount: number;
   listingCurrencyCode: string;
   exchangeRate: number;
   deliveryPerProduct: number | null;
@@ -51,10 +53,11 @@ export declare type TListingCosts = {
   userCountryId: number;
   cost: number;
 };
-export interface TListing extends TListingCosts {
+
+export interface TListing extends TListingCosts
+{
   listingName: string;
   scrapeTime: Date;
-  amount: number;
   amountUnit: string;
   vendorId: number;
   vendorName: string;
@@ -88,21 +91,25 @@ export interface TVendor {
 export declare type TVendors = TVendor[];
 
 
-
-export interface TProtocolRowCosts extends TListingCosts {
+export interface TProtocolRowCostCalculationData extends TListingCosts
+{
   protocolId: number;
   dose: number;
   doseUnitId: number;
-  amount: number;
   amountUnitId: number;
   dosesPerDay: number;
   daysPerMonth: number;
+}
+
+export interface TProtocolRowCosts extends TProtocolRowCostCalculationData
+{
   productsPerMonth: number;
   listingsPerMonth: number;
   repurchase: number;
   costPerMonth: number;
   feesPerMonth: number;
 }
+
 export interface TProtocolRow extends TProtocolRowCosts {
   productName: string;
   listingName: string;
@@ -116,6 +123,7 @@ export interface TProtocolRow extends TProtocolRowCosts {
   vendorName: string;
   scrapeTime: Date;
 }
+
 export declare type TProtocol = TProtocolRow[];
 
 
