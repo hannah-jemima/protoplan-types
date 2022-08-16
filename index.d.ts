@@ -31,14 +31,13 @@ export interface TNewProduct
   recDoseUnitId?: number
 }
 
-export declare type TListingCosts =
+export declare interface TListingCostCalculationData
 {
   listingId: number;
   productId: number;
   price: number;
   amount: number;
   listingCurrencyCode: string;
-  exchangeRate: number;
   deliveryPerProduct: number | null;
   deliveryPrice: number;
   bundleId: number | null;
@@ -51,8 +50,13 @@ export declare type TListingCosts =
   basketLimit: number;
   userCurrencyCode: string;
   userCountryId: number;
+}
+
+export declare interface TListingCosts extends TListingCostCalculationData
+{
+  exchangeRate: number;
   cost: number;
-};
+}
 
 export interface TListing extends TListingCosts
 {
@@ -91,7 +95,7 @@ export interface TVendor {
 export declare type TVendors = TVendor[];
 
 
-export interface TProtocolRowCostCalculationData extends TListingCosts
+export interface TProtocolRowCostCalculationData extends TListingCostCalculationData
 {
   protocolId: number;
   dose: number;
