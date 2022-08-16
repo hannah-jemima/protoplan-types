@@ -36,7 +36,6 @@ export declare interface TListingCostCalculationData
   listingId: number;
   productId: number;
   price: number;
-  amount: number;
   listingCurrencyCode: string;
   deliveryPerProduct: number | null;
   deliveryPrice: number;
@@ -62,6 +61,7 @@ export interface TListing extends TListingCosts
 {
   listingName: string;
   scrapeTime: Date;
+  amount: number;
   amountUnit: string;
   vendorId: number;
   vendorName: string;
@@ -98,6 +98,7 @@ export declare type TVendors = TVendor[];
 export interface TProtocolRowCostCalculationData extends TListingCostCalculationData
 {
   protocolId: number;
+  amount: number;
   dose: number;
   doseUnitId: number;
   amountUnitId: number;
