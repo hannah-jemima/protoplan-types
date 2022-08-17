@@ -37,16 +37,16 @@ export declare interface TListingCostCalculationData
   productId: number;
   price: number;
   listingCurrencyCode: string;
-  deliveryPerProduct: number | null;
+  deliveryPerProduct: number;
   deliveryPrice: number;
+  basketLimit: number;
   bundleId: number | null;
   quantity: number;
   nBundleProducts: number;
   vendorCountryId: number;
   baseTax: number | null;
-  taxPercent: number | null;
+  taxPercent: number;
   taxBracketEnd: number | null;
-  basketLimit: number;
   userCurrencyCode: string;
   userCountryId: number;
 }
