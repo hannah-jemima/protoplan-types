@@ -44,7 +44,7 @@ export declare interface TListingCostCalculationData
   quantity: number;
   nBundleProducts: number;
   vendorCountryId: number;
-  baseTax: number | null;
+  baseTax: number;
   taxPercent: number;
   taxBracketEnd: number | null;
   userCurrencyCode: string;
