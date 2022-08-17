@@ -55,6 +55,7 @@ export declare interface TListingCosts extends TListingCostCalculationData
 {
   deliveryPriceEstimated: boolean;
   basketLimitEstimated: boolean;
+  taxEstimated: boolean;
   exchangeRate: number;
   cost: number;
 }
