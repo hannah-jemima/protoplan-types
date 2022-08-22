@@ -7,7 +7,9 @@ export interface TCountry {
 export declare type TCountries = TCountry[];
 
 
-export interface TProduct {
+
+export interface TProduct
+{
   productId: number;
   productName: string;
   brandName: string;
@@ -15,8 +17,6 @@ export interface TProduct {
   amountUnitId: number;
   amountUnit: string;
   userId: number;
-  recDose: number;
-  recDoseUnitId: number;
 }
 export declare type TProducts = TProduct[];
 
