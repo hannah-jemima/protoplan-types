@@ -173,3 +173,11 @@ export interface TUnitConversion {
   factor: number;
 }
 export declare type TUnitConversions = TUnitConversion[];
+
+
+export interface IOrderReminder
+{
+  orderReminder: boolean | null,
+  reminderDate: Date | null,
+  reminderFrequency: string | null
+}
