@@ -149,7 +149,7 @@ export interface IRef {
 export interface IBookRef extends IRef {
   bookId: number;
   pageNo: number | null;
-  formatId: number;
+  bookFormatId: number;
 }
 export interface IPostRef extends IRef {
   url: string;
