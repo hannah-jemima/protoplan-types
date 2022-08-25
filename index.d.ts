@@ -163,7 +163,7 @@ export declare type TRef = (IBookRef | IPostRef) & {
   platform?: string,
   bookId?: number,
   pageNo?: number,
-  bookFormatId?: number };
+  bookFormat?: string };
 
 
 export interface TUnit {
