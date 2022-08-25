@@ -156,7 +156,14 @@ export interface IPostRef extends IRef {
   platformId: number;
   platform: string;
 }
-export declare type TRef = IBookRef | IPostRef;
+
+export declare type TRef = (IBookRef | IPostRef) & {
+  url?: string,
+  platformId?: number,
+  platform?: string,
+  bookId?: number,
+  pageNo?: number,
+  bookFormatId?: number };
 
 
 export interface TUnit {
