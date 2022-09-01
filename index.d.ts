@@ -24,7 +24,7 @@ export interface TNewProduct
 {
   name: string,
   brandId?: number,
-  brandName: string,
+  brandName?: string,
   amount?: number,
   amountUnitId?: number,
   recDose?: number,
