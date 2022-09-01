@@ -23,7 +23,7 @@ export declare type TProducts = TProduct[];
 export interface TNewProduct
 {
   name: string,
-  brandId: number,
+  brandId?: number,
   brandName: string,
   amount?: number,
   amountUnitId?: number,
