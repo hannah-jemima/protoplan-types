@@ -165,6 +165,18 @@ export declare type TRef = (IBookRef | IPostRef) & {
   pageNo?: number,
   bookFormat?: string };
 
+export interface ISpiel
+{
+  topicId: number,
+  postId: number,
+  title: string,
+  date: Date,
+  url: string,
+  platform: string,
+  refs: { refId: number, timestamp: string }[],
+  votes: number,
+  voted: boolean
+}
 
 export interface TUnit {
   unitId: number;
