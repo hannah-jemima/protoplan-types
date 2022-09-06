@@ -173,9 +173,24 @@ export interface ISpiel
   date: Date,
   url: string,
   platform: string,
-  refs: { refId: number, timestamp: string }[],
+  refs: { refId: number, timestamp: string }[]
+}
+
+export interface ISpielComment
+{
+  userId: number,
+  text: string,
+  time: Date,
   votes: number,
   voted: boolean
+}
+
+export interface ISpielContent
+{
+  refId: number,
+  votes: number,
+  voted: boolean
+  comments: ISpielComment[]
 }
 
 export interface TUnit {
