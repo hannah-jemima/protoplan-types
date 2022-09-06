@@ -178,6 +178,7 @@ export interface ISpiel
 
 export interface ISpielComment
 {
+  commentId: number,
   userId: number,
   text: string,
   time: Date,
