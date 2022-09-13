@@ -70,7 +70,6 @@ export interface TListing extends TListingCosts
   vendorName: string;
   inaccessible: boolean;
   currencyId: number;
-  listingCurrencyCode: string;
   listingUrl: string;
   userId: number;
   deliveryCountryId: number;
@@ -176,31 +175,16 @@ export interface ISpiel
   refs: { refId: number, timestamp: string }[]
 }
 
-export interface ISpielComment
+export interface TUnit
 {
-  commentId: number,
-  userId: number,
-  text: string,
-  time: Date,
-  votes: number,
-  voted: boolean
-}
-
-export interface ISpielContent
-{
-  refId: number,
-  votes: number,
-  voted: boolean
-  comments: ISpielComment[]
-}
-
-export interface TUnit {
   unitId: number;
   name: string;
   formId: number;
 }
 export declare type TUnits = TUnit[];
-export interface TUnitConversion {
+
+export interface TUnitConversion
+{
   unitConversionId: number;
   productId: number;
   fromUnitId: number;
