@@ -117,7 +117,7 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
-export interface TProtocolRow extends TProtocolRowCosts {
+/*export interface TProtocolRow extends TProtocolRowCosts {
   productName: string;
   listingName: string;
   brandName: string;
@@ -131,7 +131,7 @@ export interface TProtocolRow extends TProtocolRowCosts {
   scrapeTime: Date;
 }
 
-export declare type TProtocol = TProtocolRow[];
+export declare type TProtocol = TProtocolRow[];*/
 
 
 
