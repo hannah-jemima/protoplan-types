@@ -117,22 +117,16 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
-/*export interface TProtocolRow extends TProtocolRowCosts {
-  productName: string;
-  listingName: string;
-  brandName: string;
-  amountUnit: string;
-  recDoseUnitId: number;
-  formId: number;
-  listingCurrencyCode: string;
-  priority: number;
-  vendorId: number;
-  vendorName: string;
-  scrapeTime: Date;
+
+export type TRowSaving =
+{
+  newRow: TProtocolRowCosts,
+  costPerMonth: number,
+  feesPerMonth: number,
+  newCostPerMonth: number,
+  newFeesPerMonth: number,
+  saving: number
 }
-
-export declare type TProtocol = TProtocolRow[];*/
-
 
 
 export declare type TTopic = {
