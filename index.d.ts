@@ -118,7 +118,7 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
 }
 
 
-export type TRowSaving =
+export declare type TRowSaving =
 {
   newRow: TProtocolRowCosts,
   costPerMonth: number,
