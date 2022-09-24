@@ -76,6 +76,15 @@ export interface TListing extends TListingCosts
 }
 export declare type TListings = TListing[];
 
+export interface TListingTableRow extends TListing
+{
+  bundleId: number | null;
+  listingCurrencySymbol: string;
+  priceWithTax: number;
+}
+
+export type TListingsTable = TListingTableRow[];
+
 export interface TNewListing
 {
   name: string,
