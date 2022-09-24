@@ -63,7 +63,7 @@ export declare interface TListingCosts extends TListingCostCalculationData
 export interface TListing extends TListingCosts
 {
   listingName: string;
-  scrapeTime: Date;
+  scrapeTime: Date | null;
   amount: number;
   amountUnit: string;
   vendorId: number;
