@@ -138,7 +138,7 @@ export interface ISaving
 
 export interface ISavingRow extends ISaving
 {
-  newRow: TProtocolRowCosts
+  newRow: TListingTableRow & TProtocolRowCosts
 }
 
 
