@@ -126,6 +126,22 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
+export interface TProtocolRow extends TProtocolRowCosts
+{
+  productName: string;
+  listingName: string;
+  brandName: string;
+  amountUnit: string;
+  recDoseUnitId: number;
+  formId: number;
+  listingCurrencyCode: string;
+  priority: number;
+  vendorId: number;
+  vendorName: string;
+  scrapeTime: Date;
+  listingCurrencySymbol: string;
+}
+
 
 export interface ISaving
 {
@@ -138,7 +154,7 @@ export interface ISaving
 
 export interface ISavingRow extends ISaving
 {
-  newRow: TListingTableRow & TProtocolRowCosts
+  newRow: TListingTableRow & TProtocolRow
 }
 
 
