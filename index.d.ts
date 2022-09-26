@@ -126,7 +126,7 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
-export interface TProtocolRow extends TProtocolRowCosts
+export interface IProtocolRow extends TProtocolRowCosts
 {
   productName: string;
   listingName: string;
@@ -152,9 +152,9 @@ export interface ISaving
   saving: number
 }
 
-export interface ISavingRow extends ISaving
+export interface ISavingRow extends ISaving, IProtocolRow
 {
-  newRow: TListingTableRow & TProtocolRow
+  newRow: TListingTableRow & IProtocolRow
 }
 
 
