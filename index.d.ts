@@ -138,7 +138,7 @@ export interface IProtocolRow extends TProtocolRowCosts
   priority: number;
   vendorId: number;
   vendorName: string;
-  scrapeTime: Date;
+  scrapeTime: Date | null;
   listingCurrencySymbol: string;
 }
 
@@ -152,7 +152,7 @@ export interface ISaving
   saving: number
 }
 
-export interface ISavingRow extends ISaving, IProtocolRow
+export interface ISavingRow extends ISaving, IProtocolRow, TListingTableRow
 {
   newRow: TListingTableRow & IProtocolRow
 }
