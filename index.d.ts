@@ -175,7 +175,7 @@ export interface ISaving
   saving: number
 }
 
-export interface ISavingRow extends ISaving, IProtocolTableRow, TListingTableRow
+export interface ISavingRow extends ISaving, IProtocolRowInfo, TProtocolRowCosts, TListingTableRow
 {
   newRow: TListingTableRow & IProtocolRowInfo & TProtocolRowCosts
 }
