@@ -10,7 +10,6 @@ export interface ICountry
 {
   countryId: number;
   name: string;
-  code: string;
   currency: ICurrency;
 }
 
