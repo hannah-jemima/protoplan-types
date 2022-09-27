@@ -1,4 +1,12 @@
 
+export interface TOption
+{
+  label: string;
+  value: number;
+  input?: string;
+}
+
+
 export interface ICurrency
 {
   currencyId: number,
@@ -148,9 +156,13 @@ export interface IProtocolRowInfo
   listingCurrencySymbol: string;
 }
 
-export interface IProtocolRow extends IProtocolRowInfo, TProtocolRowCosts
+export interface IProtocolTableRow extends IProtocolRowInfo, TProtocolRowCosts
 {
   priority: number;
+  unitOptions: TOption[],
+  checked?: boolean,
+
+  listingSavings: ISavingRow[];
 }
 
 
@@ -163,7 +175,7 @@ export interface ISaving
   saving: number
 }
 
-export interface ISavingRow extends ISaving, IProtocolRow, TListingTableRow
+export interface ISavingRow extends ISaving, IProtocolTableRow, TListingTableRow
 {
   newRow: TListingTableRow & IProtocolRowInfo & TProtocolRowCosts
 }
