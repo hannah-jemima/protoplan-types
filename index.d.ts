@@ -126,7 +126,7 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
-export interface IProtocolRow extends TProtocolRowCosts
+export interface IProtocolRowInfo extends TProtocolRowCosts
 {
   productName: string;
   listingName: string;
@@ -135,11 +135,15 @@ export interface IProtocolRow extends TProtocolRowCosts
   recDoseUnitId: number;
   formId: number;
   listingCurrencyCode: string;
-  priority: number;
   vendorId: number;
   vendorName: string;
   scrapeTime: Date | null;
   listingCurrencySymbol: string;
+}
+
+export interface IProtocolRow extends IProtocolRowInfo
+{
+  priority: number;
 }
 
 
@@ -154,7 +158,7 @@ export interface ISaving
 
 export interface ISavingRow extends ISaving, IProtocolRow, TListingTableRow
 {
-  newRow: TListingTableRow & IProtocolRow
+  newRow: TListingTableRow & IProtocolRowInfo
 }
 
 
