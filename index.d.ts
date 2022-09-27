@@ -1,10 +1,18 @@
-export interface TCountry {
+
+export interface ICurrency
+{
+  currencyId: number,
+  code: string,
+  symbol: string | null
+}
+
+export interface ICountry
+{
   countryId: number;
   name: string;
   code: string;
-  currencyCode: string;
+  currency: ICurrency;
 }
-export declare type TCountries = TCountry[];
 
 
 
