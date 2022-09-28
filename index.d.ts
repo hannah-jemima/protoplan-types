@@ -162,7 +162,7 @@ export interface IProtocolTableRow extends IProtocolRowInfo, TProtocolRowCosts
   unitOptions: TOption[],
   checked?: boolean,
 
-  listingSavings: ISavingRow[];
+  listingSavings?: ISavingRow[];
 }
 
 
