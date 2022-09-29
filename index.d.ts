@@ -31,7 +31,7 @@ export interface TProduct
   amount: number;
   amountUnitId: number;
   amountUnit: string;
-  userId: number;
+  userId?: number;
 }
 export declare type TProducts = TProduct[];
 
