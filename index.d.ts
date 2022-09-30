@@ -138,6 +138,8 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   listingsPerMonth: number;
   repurchase: number;
   costPerMonth: number;
+  maxListingsPerOrder: number;
+  ordersPerMonth: number;
   feesPerMonth: number;
 }
 
