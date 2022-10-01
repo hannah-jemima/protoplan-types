@@ -158,12 +158,17 @@ export interface IProtocolRowInfo
   listingCurrencySymbol: string;
 }
 
-export interface IProtocolTableRow extends IProtocolRowInfo, TProtocolRowCosts
+export interface IProtocolTableRowOptions
 {
   priority: number;
   unitOptions: TOption[],
-  checked?: boolean,
+  checked?: boolean
+}
 
+export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
+
+export interface IProtocolTableRow extends TProtocolRowData, IProtocolTableRowOptions
+{
   listingSavings?: ISavingRow[];
 }
 
@@ -177,7 +182,7 @@ export interface ISaving
   saving: number
 }
 
-export interface ISavingRow extends ISaving, IProtocolRowInfo, TProtocolRowCosts, TListingTableRow
+export interface ISavingRow extends ISaving, TProtocolRowData, TListingTableRow
 {
   newRow: TListingTableRow & IProtocolRowInfo & TProtocolRowCosts
 }
