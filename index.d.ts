@@ -169,7 +169,7 @@ export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
 
 export interface IProtocolTableRow extends TProtocolRowData, IProtocolTableRowOptions
 {
-  listingSavings?: ISavingRow[];
+  listingSavings?: TSavingRow[];
 }
 
 
@@ -182,10 +182,7 @@ export interface ISaving
   saving: number
 }
 
-export interface ISavingRow extends ISaving, TProtocolRowData, TListingTableRow
-{
-  newRow: TListingTableRow & IProtocolRowInfo & TProtocolRowCosts
-}
+export type TSavingRow = ISaving & TProtocolRowData & TListingTableRow;
 
 
 export declare type TTopic = {
