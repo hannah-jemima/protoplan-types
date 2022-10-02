@@ -174,10 +174,6 @@ export interface IProtocolTableRow extends TProtocolRowData, IProtocolTableRowOp
 
 export interface ISaving
 {
-  costPerMonth: number,
-  feesPerMonth: number,
-  newCostPerMonth: number,
-  newFeesPerMonth: number,
   saving: number
 }
 
