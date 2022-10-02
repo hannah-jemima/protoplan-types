@@ -72,7 +72,7 @@ export declare interface TListingCosts extends TListingCostCalculationData
   basketLimitEstimated: boolean;
   taxEstimated: boolean;
   exchangeRate: number;
-  cost: number;
+  priceWithTax: number;
 }
 
 export interface TListing extends TListingCosts
@@ -95,7 +95,6 @@ export interface TListingTableRow extends TListing
 {
   bundleId: number | null;
   listingCurrencySymbol: string;
-  priceWithTax: number;
 }
 
 export type TListingsTable = TListingTableRow[];
