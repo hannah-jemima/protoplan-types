@@ -85,7 +85,7 @@ export interface TListing extends TListingCosts
   vendorName: string;
   inaccessible: boolean;
   currencyId: number;
-  listingUrl: string;
+  url: string;
   userId: number;
   deliveryCountryId: number;
 }
