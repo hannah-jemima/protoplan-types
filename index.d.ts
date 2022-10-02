@@ -155,6 +155,7 @@ export interface IProtocolRowInfo
   vendorName: string;
   scrapeTime: Date | null;
   listingCurrencySymbol: string;
+  url: string;
 }
 
 export interface IProtocolTableRowOptions
