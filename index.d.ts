@@ -19,6 +19,7 @@ export interface ICountry
   countryId: number;
   name: string;
   currency: ICurrency;
+  popularity: number;
 }
 
 
