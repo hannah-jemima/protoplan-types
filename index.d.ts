@@ -219,7 +219,8 @@ export interface ISpiel
   date: Date,
   url: string,
   platform: string,
-  refs: { refId: number, timestamp: string }[]
+  refs: { refId: number, timestamp: string }[],
+  mediaId: string | null
 }
 
 export interface TUnit
