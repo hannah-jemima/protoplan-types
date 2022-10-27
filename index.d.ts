@@ -248,3 +248,117 @@ export interface IOrderReminder
   reminderDate: Date | null,
   reminderFrequency: string | null
 }
+
+
+interface IListingBase
+{
+  listingId: number,
+  listingName: string,
+  productId: number,
+  amount: number,
+  amountUnit: string,
+  vendorId: number,
+  vendorName: string,
+  vendorScrapeTime: Date | null,
+  price: number,
+  scrapedPrice: number | null,
+  scrapeTime: Date | null,
+  deliveryPerListing: number,
+  vendorCountryId: number,
+  vendorCurrencyCode: string,
+  listingCurrencyCode: string | null,
+  vendorCurrencySymbol: string | null,
+  listingCurrencySymbol: string | null,
+  url: string,
+  deliveryCountryId: number,
+  currencyId: number,
+  userId: number
+}
+
+export interface IListingInit extends IListingBase
+{
+  inaccessible: number | null
+}
+
+interface IBundleProps
+{
+  bundleId: number,
+  quantity: number,
+  nBundleProducts: number
+}
+
+export type TBundleListingInit = IListingInit & IBundleProps;
+
+interface IConfirmedPrices
+{
+  listingCurrencyCode: string,
+  listingCurrencySymbol: string,
+  quantity: number,
+  nBundleProducts: number,
+  price: number
+}
+
+interface IListingForUserProps
+{
+  vendorDeliveryCountryId: number,
+  deliveryPrice: number,
+  basketLimit: number | null,
+  userCountryId: number,
+  userCurrencyCode: string,
+  listingBaseTax: number | null,
+  listingTaxPercent: number | null,
+  listingTaxBracketEnd: number | null,
+  vendorBaseTax: number | null,
+  vendorTaxPercent: number | null,
+  vendorTaxBracketEnd: number | null,
+}
+
+export type TListingForUserInit = IListingInit & IListingForUserProps
+
+export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
+
+interface IBundleListingProps
+{
+  taxBracketEnd: number| null,
+  baseTax: number,
+  taxPercent: number,
+  taxEstimated: boolean,
+  deliveryPrice: number,
+  deliveryPriceEstimated: boolean,
+  basketLimit: number,
+  basketLimitEstimated: boolean,
+  scrapeTime: Date | null
+}
+
+export type TBundleListing =
+  IListingBase &
+  IConfirmedPrices &
+  IListingForUserProps &
+  IBundleProps &
+  IBundleListingProps;
+
+
+interface TLeftoverProduct extends TProtocolRowData
+{
+  nProductsOutsideBundlePerMonth: number
+}
+
+interface IBundleSaving
+{
+  protocolId: number;
+  productId: number;
+  listingId: number;
+  replacableRows: TProtocolRowData[];
+  currentCostPerMonth: number;
+  currentFeesPerMonth: number,
+  bundleListingId: number,
+  bundleCostPerMonth: number;
+  bundleFeesPerMonth: number;
+  leftoverProductsCostPerMonth: number;
+  leftoverProductsFeesPerMonth: number;
+  bundleSaving: number;
+  bundlesPerMonth: number,
+  leftoverProducts: TLeftoverProduct[]
+}
+
+export type TMoneySavingBundle = IBundleSaving & TBundleListing;
