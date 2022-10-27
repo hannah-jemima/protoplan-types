@@ -300,6 +300,7 @@ interface IConfirmedPrices
 
 interface IListingForUserProps
 {
+  exchangeRate: number,
   vendorDeliveryCountryId: number,
   deliveryPrice: number,
   basketLimit: number | null,
