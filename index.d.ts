@@ -362,4 +362,9 @@ interface IBundleSaving
   leftoverProducts: TLeftoverProduct[]
 }
 
-export type TMoneySavingBundle = IBundleSaving & TBundleListing;
+interface TBundle extends TBundleListing
+{
+  products: { productId: number, quantity: number }[]
+}
+
+export type TMoneySavingBundle = IBundleSaving & TBundleListing & TBundle;
