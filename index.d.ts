@@ -331,6 +331,12 @@ interface IBundleListingProps
   scrapeTime: Date | null
 }
 
+interface IUnitNames
+{
+  doseUnit: string,
+  amountUnit: string
+}
+
 export type TBundleListing =
   IListingBase &
   IConfirmedPrices &
@@ -339,24 +345,20 @@ export type TBundleListing =
   IBundleListingProps &
   TProtocolRowCosts;
 
-
-interface TLeftoverProduct extends TProtocolRowData
+interface TLeftoverProduct extends TProtocolRowData, IUnitNames
 {
   nProductsOutsideBundlePerMonth: number
 }
 
-interface IReplacableRow extends TProtocolRowData
-{
-  doseUnit: string,
-  amountUnit: string
-}
+
+type TReplacableRow = TProtocolRowData & IUnitNames;
 
 interface IBundleSaving
 {
   protocolId: number;
   productId: number;
   listingId: number;
-  replacableRows: IReplacableRow[];
+  replacableRows: TReplacableRow[];
   currentCostPerMonth: number;
   currentFeesPerMonth: number,
   bundleListingId: number,
