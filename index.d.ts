@@ -171,6 +171,7 @@ export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
 export interface IProtocolTableRow extends TProtocolRowData, IProtocolTableRowOptions
 {
   listingSavings?: TSavingRow[];
+  bundleSavings?: TMoneySavingBundle[];
 }
 
 
