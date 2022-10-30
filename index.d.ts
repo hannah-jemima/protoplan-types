@@ -344,12 +344,18 @@ interface TLeftoverProduct extends TProtocolRowData
   nProductsOutsideBundlePerMonth: number
 }
 
+interface IReplacableRow extends TProtocolRowData
+{
+  doseUnit: string,
+  amountUnit: string
+}
+
 interface IBundleSaving
 {
   protocolId: number;
   productId: number;
   listingId: number;
-  replacableRows: TProtocolRowData[];
+  replacableRows: IReplacableRow[];
   currentCostPerMonth: number;
   currentFeesPerMonth: number,
   bundleListingId: number,
