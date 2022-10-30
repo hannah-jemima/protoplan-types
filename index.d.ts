@@ -343,7 +343,7 @@ export type TBundleListing =
   IListingForUserProps &
   IBundleProps &
   IBundleListingProps &
-  TProtocolRowCosts;
+  TProtocolRowData;
 
 interface TLeftoverProduct extends TProtocolRowData, IUnitNames
 {
