@@ -255,9 +255,13 @@ interface IListingBase
 {
   listingId: number,
   listingName: string,
+  brandName: string,
   productId: number,
+  productName: string,
   amount: number,
   amountUnit: string,
+  recDoseUnitId: number,
+  formId: number,
   vendorId: number,
   vendorName: string,
   vendorScrapeTime: Date | null,
