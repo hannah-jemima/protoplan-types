@@ -32,9 +32,14 @@ export interface TProduct
   amount: number;
   amountUnitId: number;
   amountUnit: string;
+  recDoseUnitId: number | null;
+  recDoseUnit: string;
+  formId: number;
   userId: number | null;
 }
 export declare type TProducts = TProduct[];
+
+
 
 export interface TNewProduct
 {
@@ -79,6 +84,7 @@ export interface TListingCosts extends IListingCostCalculationData
 export interface IListingInfo extends TProduct, IListingCostCalculationData
 {
   listingName: string;
+  amountUnit: string;
   scrapeTime: Date | null;
   vendorId: number;
   vendorName: string;
@@ -87,6 +93,7 @@ export interface IListingInfo extends TProduct, IListingCostCalculationData
   url: string;
   userId: number | null;
   deliveryCountryId: number;
+  listingCurrencyCode: string;
   listingCurrencySymbol: string;
 }
 
@@ -105,7 +112,8 @@ export interface TNewListing
   url: string
 }
 
-export interface TVendor {
+export interface TVendor
+{
   vendorId: number;
   name: string;
   countryId: number;
@@ -137,20 +145,9 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
-export interface IProtocolRowInfo
+export interface IProtocolRowInfo extends IListingInfo, TProtocolRowCostCalculationData
 {
-  productName: string;
-  listingName: string;
-  brandName: string;
-  amountUnit: string;
-  recDoseUnitId: number;
-  formId: number;
-  listingCurrencyCode: string;
-  vendorId: number;
-  vendorName: string;
-  scrapeTime: Date | null;
-  listingCurrencySymbol: string;
-  url: string;
+  doseUnit: string;
 }
 
 export interface IProtocolTableRowOptions
