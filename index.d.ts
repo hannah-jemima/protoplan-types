@@ -76,7 +76,7 @@ export declare interface TListingCosts extends TListingCostCalculationData
   priceWithTax: number;
 }
 
-export interface TListing extends TListingCosts
+export interface TListingTableRow extends TListingCosts
 {
   listingName: string;
   scrapeTime: Date | null;
@@ -89,11 +89,6 @@ export interface TListing extends TListingCosts
   url: string;
   userId: number;
   deliveryCountryId: number;
-}
-export declare type TListings = TListing[];
-
-export interface TListingTableRow extends TListing
-{
   bundleId: number | null;
   listingCurrencySymbol: string;
 }
@@ -298,8 +293,6 @@ interface IConfirmedPrices
 {
   listingCurrencyCode: string,
   listingCurrencySymbol: string,
-  quantity: number,
-  nBundleProducts: number,
   price: number
 }
 
