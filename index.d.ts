@@ -32,7 +32,7 @@ export interface TProduct
   amount: number;
   amountUnitId: number;
   amountUnit: string;
-  userId?: number;
+  userId: number | null;
 }
 export declare type TProducts = TProduct[];
 
@@ -47,7 +47,7 @@ export interface TNewProduct
   recDoseUnitId?: number
 }
 
-interface IListingCostCalculationData
+export interface IListingCostCalculationData
 {
   listingId: number;
   productId: number;
@@ -67,7 +67,7 @@ interface IListingCostCalculationData
   userCountryId: number;
 }
 
-export declare interface TListingCosts extends IListingCostCalculationData
+export interface TListingCosts extends IListingCostCalculationData
 {
   deliveryPriceEstimated: boolean;
   basketLimitEstimated: boolean;
@@ -76,22 +76,21 @@ export declare interface TListingCosts extends IListingCostCalculationData
   priceWithTax: number;
 }
 
-export interface TListingTableRow extends TListingCosts
+export interface IListingInfo extends TProduct, IListingCostCalculationData
 {
   listingName: string;
   scrapeTime: Date | null;
-  amount: number;
-  amountUnit: string;
   vendorId: number;
   vendorName: string;
   inaccessible: boolean;
   currencyId: number;
   url: string;
-  userId: number;
+  userId: number | null;
   deliveryCountryId: number;
-  bundleId: number | null;
   listingCurrencySymbol: string;
 }
+
+export type TListingTableRow = TListingCosts & IListingInfo
 
 export type TListingsTable = TListingTableRow[];
 
