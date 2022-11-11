@@ -125,7 +125,6 @@ export declare type TVendors = TVendor[];
 
 export interface TProtocolRowCostCalculationData extends IListingCostCalculationData
 {
-  protocolId: number;
   amount: number;
   dose: number;
   doseUnitId: number;
@@ -150,17 +149,14 @@ export interface IProtocolRowInfo extends IListingInfo, TProtocolRowCostCalculat
   doseUnit: string;
 }
 
-export interface IProtocolTableRowOptions
+export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
+
+export interface IProtocolTableRow extends TProtocolRowData
 {
+  protocolId: number;
   priority: number;
   unitOptions: TOption[],
   checked?: boolean
-}
-
-export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
-
-export interface IProtocolTableRow extends TProtocolRowData, IProtocolTableRowOptions
-{
   listingSavings?: TSavingRow[];
   bundleSavings?: TMoneySavingBundle[];
 }
