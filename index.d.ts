@@ -74,9 +74,6 @@ export interface IListingCostCalculationData
 
 export interface TListingCosts extends IListingCostCalculationData
 {
-  deliveryPriceEstimated: boolean;
-  basketLimitEstimated: boolean;
-  taxEstimated: boolean;
   exchangeRate: number;
   priceWithTax: number;
 }
@@ -95,6 +92,10 @@ export interface IListingInfo extends TProduct, IListingCostCalculationData
   deliveryCountryId: number;
   listingCurrencyCode: string;
   listingCurrencySymbol: string;
+
+  deliveryPriceEstimated: boolean;
+  basketLimitEstimated: boolean;
+  taxEstimated: boolean;
 }
 
 export type TListingTableRow = TListingCosts & IListingInfo
