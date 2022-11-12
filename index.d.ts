@@ -330,5 +330,4 @@ interface IBundleSaving
   leftoverProductsFeesPerMonth: number;
 
   bundleSaving: number;   // = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
-  bundlesPerMonth: number,
 }
