@@ -89,8 +89,7 @@ export interface IListingInfo extends TProduct, IListingCostCalculationData
   currencyId: number;
   url: string;
   userId: number | null;
-  deliveryCountryId: number;
-  listingCurrencyCode: string;
+  deliveryCountryId: number | null;
   listingCurrencySymbol: string;
 
   deliveryPriceEstimated: boolean;
