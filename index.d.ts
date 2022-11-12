@@ -33,7 +33,7 @@ export interface TProduct
   amountUnitId: number;
   amountUnit: string;
   recDoseUnitId: number | null;
-  recDoseUnit: string;
+  recDoseUnit: string | null;
   formId: number;
   userId: number | null;
 }
@@ -248,8 +248,8 @@ interface IListingBase
   amount: number,
   amountUnitId: number,
   amountUnit: string,
-  recDoseUnitId: number,
-  recDoseUnit: string,
+  recDoseUnitId: number | null,
+  recDoseUnit: string | null,
   formId: number,
   vendorId: number,
   vendorName: string,
