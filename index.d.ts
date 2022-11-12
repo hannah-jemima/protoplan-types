@@ -158,7 +158,7 @@ export interface IProtocolTableRow extends TProtocolRowData
   unitOptions: TOption[],
   checked?: boolean
   listingSavings?: TSavingRow[];
-  bundleSavings?: TMoneySavingBundle[];
+  bundleSavings?: IBundleSaving[];   // duplicate bundle saving data for every protocol row bundle replaces (for now)
 }
 
 
@@ -310,62 +310,24 @@ export type TListingForUserInit = IListingInit & IListingForUserProps
 
 export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
 
-interface IBundleListingProps
-{
-  taxBracketEnd: number| null,
-  baseTax: number,
-  taxPercent: number,
-  taxEstimated: boolean,
-  deliveryPrice: number,
-  deliveryPriceEstimated: boolean,
-  basketLimit: number,
-  basketLimitEstimated: boolean,
-  scrapeTime: Date | null
-}
-
-interface IUnitNames
-{
-  doseUnit: string,
-  amountUnit: string
-}
-
-export type TBundleListing =
-  IListingBase &
-  IConfirmedPrices &
-  IListingForUserProps &
-  IBundleProps &
-  IBundleListingProps &
-  TProtocolRowData;
-
-interface TLeftoverProduct extends TProtocolRowData, IUnitNames
-{
-  nProductsOutsideBundlePerMonth: number
-}
-
-
-type TReplacableRow = TProtocolRowData & IUnitNames;
 
 interface IBundleSaving
 {
-  protocolId: number;
-  productId: number;
-  listingId: number;
-  replacableRows: TReplacableRow[];
-  currentCostPerMonth: number;
-  currentFeesPerMonth: number,
-  bundleListingId: number,
+  replacableRows: TProtocolRowData[];
+
+  replacableRowsCostPerMonth: number;
+  replacableRowsFeesPerMonth: number,
+
+  bundle: TProtocolRowData[],
+
   bundleCostPerMonth: number;
   bundleFeesPerMonth: number;
+
+  leftoverProducts: TProtocolRowData[]    // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
+
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
-  bundleSaving: number;
+
+  bundleSaving: number;   // = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
   bundlesPerMonth: number,
-  leftoverProducts: TLeftoverProduct[]
 }
-
-interface TBundle extends TBundleListing
-{
-  products: { productId: number, quantity: number }[]
-}
-
-export type TMoneySavingBundle = IBundleSaving & TBundleListing & TBundle;
