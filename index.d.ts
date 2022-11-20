@@ -278,7 +278,17 @@ interface IBundleProps
 {
   bundleId: number,
   quantity: number,
-  nBundleProducts: number
+  nBundleProducts: number,
+
+  includedProductId: number,
+  includedProductAmount: number,
+  includedProductName: string,
+  includedProductFormId: number,
+  includedProductBrandName: string,
+  includedProductAmountUnitId: number,
+  includedProductAmountUnit: string,
+  includedProductRecDoseUnitId: number,
+  includedProductRecDoseUnit: number,
 }
 
 export type TBundleListingInit = IListingInit & IBundleProps;
