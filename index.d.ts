@@ -39,8 +39,6 @@ export interface TProduct
 }
 export declare type TProducts = TProduct[];
 
-
-
 export interface TNewProduct
 {
   name: string,
@@ -50,6 +48,43 @@ export interface TNewProduct
   amountUnitId?: number,
   recDose?: number,
   recDoseUnitId?: number
+}
+
+
+interface IListingBase
+{
+  listingId: number,
+  listingName: string,
+  brandName: string,
+  productId: number,
+  productName: string,
+  amount: number,
+  amountUnitId: number,
+  amountUnit: string,
+  recDoseUnitId: number | null,
+  recDoseUnit: string | null,
+  formId: number,
+  vendorId: number,
+  vendorName: string,
+  vendorScrapeTime: Date | null,
+  price: number,
+  scrapedPrice: number | null,
+  scrapeTime: Date | null,
+  deliveryPerListing: number,
+  vendorCountryId: number,
+  vendorCurrencyCode: string,
+  listingCurrencyCode: string | null,
+  vendorCurrencySymbol: string | null,
+  listingCurrencySymbol: string | null,
+  url: string,
+  deliveryCountryId: number,
+  currencyId: number,
+  userId: number
+}
+
+export interface IListingInit extends IListingBase
+{
+  inaccessible: number | null
 }
 
 export interface IListingCostCalculationData
@@ -71,6 +106,69 @@ export interface IListingCostCalculationData
   userCurrencyCode: string;
   userCountryId: number;
 }
+
+interface IListingForUserProps
+{
+  exchangeRate: number,
+  vendorDeliveryCountryId: number,
+  deliveryPrice: number,
+  basketLimit: number | null,
+  userCountryId: number,
+  userCurrencyCode: string,
+  listingBaseTax: number | null,
+  listingTaxPercent: number | null,
+  listingTaxBracketEnd: number | null,
+  vendorBaseTax: number | null,
+  vendorTaxPercent: number | null,
+  vendorTaxBracketEnd: number | null,
+}
+
+export type TListingForUserInit = IListingInit & IListingForUserProps
+
+
+export interface IBundleProps
+{
+  bundleId: number,
+  quantity: number,
+  nBundleProducts: number,
+
+  includedProductId: number,
+  includedProductAmount: number,
+  includedProductName: string,
+  includedProductFormId: number,
+  includedProductBrandName: string,
+  includedProductAmountUnitId: number,
+  includedProductAmountUnit: string,
+  includedProductRecDoseUnitId: number,
+  includedProductRecDoseUnit: string,
+}
+
+export type TBundleListingInit = IListingInit & IBundleProps;
+
+
+export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
+
+
+interface IBundleSaving
+{
+  replacableRows: TProtocolRowData[];
+
+  replacableRowsCostPerMonth: number;
+  replacableRowsFeesPerMonth: number,
+
+  bundle: TProtocolRowData[],
+
+  bundleCostPerMonth: number;
+  bundleFeesPerMonth: number;
+
+  leftoverProducts: TProtocolRowData[]    // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
+
+  leftoverProductsCostPerMonth: number;
+  leftoverProductsFeesPerMonth: number;
+
+  bundleSaving: number;   // = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
+}
+
 
 export interface TListingCosts extends IListingCostCalculationData
 {
@@ -235,108 +333,4 @@ export interface IOrderReminder
   orderReminder: boolean | null,
   reminderDate: Date | null,
   reminderFrequency: string | null
-}
-
-
-interface IListingBase
-{
-  listingId: number,
-  listingName: string,
-  brandName: string,
-  productId: number,
-  productName: string,
-  amount: number,
-  amountUnitId: number,
-  amountUnit: string,
-  recDoseUnitId: number | null,
-  recDoseUnit: string | null,
-  formId: number,
-  vendorId: number,
-  vendorName: string,
-  vendorScrapeTime: Date | null,
-  price: number,
-  scrapedPrice: number | null,
-  scrapeTime: Date | null,
-  deliveryPerListing: number,
-  vendorCountryId: number,
-  vendorCurrencyCode: string,
-  listingCurrencyCode: string | null,
-  vendorCurrencySymbol: string | null,
-  listingCurrencySymbol: string | null,
-  url: string,
-  deliveryCountryId: number,
-  currencyId: number,
-  userId: number
-}
-
-export interface IListingInit extends IListingBase
-{
-  inaccessible: number | null
-}
-
-export interface IBundleProps
-{
-  bundleId: number,
-  quantity: number,
-  nBundleProducts: number,
-
-  includedProductId: number,
-  includedProductAmount: number,
-  includedProductName: string,
-  includedProductFormId: number,
-  includedProductBrandName: string,
-  includedProductAmountUnitId: number,
-  includedProductAmountUnit: string,
-  includedProductRecDoseUnitId: number,
-  includedProductRecDoseUnit: string,
-}
-
-export type TBundleListingInit = IListingInit & IBundleProps;
-
-interface IConfirmedPrices
-{
-  listingCurrencyCode: string,
-  listingCurrencySymbol: string,
-  price: number
-}
-
-interface IListingForUserProps
-{
-  exchangeRate: number,
-  vendorDeliveryCountryId: number,
-  deliveryPrice: number,
-  basketLimit: number | null,
-  userCountryId: number,
-  userCurrencyCode: string,
-  listingBaseTax: number | null,
-  listingTaxPercent: number | null,
-  listingTaxBracketEnd: number | null,
-  vendorBaseTax: number | null,
-  vendorTaxPercent: number | null,
-  vendorTaxBracketEnd: number | null,
-}
-
-export type TListingForUserInit = IListingInit & IListingForUserProps
-
-export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
-
-
-interface IBundleSaving
-{
-  replacableRows: TProtocolRowData[];
-
-  replacableRowsCostPerMonth: number;
-  replacableRowsFeesPerMonth: number,
-
-  bundle: TProtocolRowData[],
-
-  bundleCostPerMonth: number;
-  bundleFeesPerMonth: number;
-
-  leftoverProducts: TProtocolRowData[]    // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
-
-  leftoverProductsCostPerMonth: number;
-  leftoverProductsFeesPerMonth: number;
-
-  bundleSaving: number;   // = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
 }
