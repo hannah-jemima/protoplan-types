@@ -274,7 +274,7 @@ export interface IListingInit extends IListingBase
   inaccessible: number | null
 }
 
-interface IBundleProps
+export interface IBundleProps
 {
   bundleId: number,
   quantity: number,
@@ -288,7 +288,7 @@ interface IBundleProps
   includedProductAmountUnitId: number,
   includedProductAmountUnit: string,
   includedProductRecDoseUnitId: number,
-  includedProductRecDoseUnit: number,
+  includedProductRecDoseUnit: string,
 }
 
 export type TBundleListingInit = IListingInit & IBundleProps;
