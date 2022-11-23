@@ -151,7 +151,7 @@ export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
 
 interface IBundleSaving
 {
-  replacableRows: TProtocolRowData[];
+  replacableRows: (TProtocolRowData & { protocolId: number })[];
 
   replacableRowsCostPerMonth: number;
   replacableRowsFeesPerMonth: number,
