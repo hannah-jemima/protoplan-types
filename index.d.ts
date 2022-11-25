@@ -161,12 +161,14 @@ interface IBundleSaving
   bundleCostPerMonth: number;
   bundleFeesPerMonth: number;
 
-  leftoverProducts: TProtocolRowData[]    // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
+  // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
+  leftoverProducts: (TProtocolRowData & { protocolId: number })[];
 
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
 
-  bundleSaving: number;   // = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
+  // bundleSaving = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
+  bundleSaving: number;
 }
 
 
