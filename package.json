@@ -1,6 +1,6 @@
 {
   "name": "@protoplan/types",
-  "version": "16.6.1",
+  "version": "16.6.2",
   "description": "",
   "main": "./index.js",
   "types": "./index.d.ts",

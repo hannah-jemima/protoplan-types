@@ -261,6 +261,8 @@ export interface IProtocolTableRow extends TProtocolRowData
   bundleSavings?: IBundleSaving[];   // duplicate bundle saving data for every protocol row bundle replaces (for now)
 }
 
+export type TProtocolTable = IProtocolTableRow[];
+
 
 export interface ISaving
 {
