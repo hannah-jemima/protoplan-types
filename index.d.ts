@@ -303,14 +303,7 @@ export declare type TRef = (IBookRef | IPostRef) & {
 
 export interface ISpiel
 {
-  topicId: number,
-  postId: number,
-  title: string,
-  date: Date,
-  url: string,
-  platform: string,
   refs: { refId: number, timestamp: string }[],
-  mediaId: string | null
 }
 
 export interface TUnit
