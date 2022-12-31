@@ -303,6 +303,7 @@ export declare type TRef = (IBookRef | IPostRef) & {
 
 export interface ISpiel
 {
+  timestamp: string,
   refs: { refId: number, timestamp: string }[],
 }
 
