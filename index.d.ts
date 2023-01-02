@@ -151,7 +151,7 @@ export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
 
 interface IBundleSaving
 {
-  replacableRows: (TProtocolRowData & { protocolId: number })[];
+  replacableRows: (TProtocolRowData & { doseId: number })[];
 
   replacableRowsCostPerMonth: number;
   replacableRowsFeesPerMonth: number,
@@ -162,7 +162,7 @@ interface IBundleSaving
   bundleFeesPerMonth: number;
 
   // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
-  leftoverProducts: (TProtocolRowData & { protocolId: number })[];
+  leftoverProducts: (TProtocolRowData & { doseId: number })[];
 
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
@@ -253,7 +253,7 @@ export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
 
 export interface IProtocolTableRow extends TProtocolRowData
 {
-  protocolId: number;
+  doseId: number;
   priority: number;
   unitOptions: TOption[],
   checked?: boolean
