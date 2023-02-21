@@ -24,7 +24,7 @@ export interface ICountry
 
 
 
-export interface TProduct
+export interface IProduct
 {
   productId: number;
   productName: string;
@@ -36,8 +36,9 @@ export interface TProduct
   recDoseUnit: string | null;
   formId: number;
   userId: number | null;
+  nListingsForUser: number;
 }
-export declare type TProducts = TProduct[];
+export declare type TProducts = IProduct[];
 
 export interface TNewProduct
 {
@@ -179,7 +180,7 @@ export interface TListingCosts extends IListingCostCalculationData
   priceWithTax: number;
 }
 
-export interface IListingInfo extends TProduct, IListingCostCalculationData
+export interface IListingInfo extends IProduct, IListingCostCalculationData
 {
   listingName: string;
   amountUnit: string;
