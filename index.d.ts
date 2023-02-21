@@ -36,9 +36,13 @@ export interface IProduct
   recDoseUnit: string | null;
   formId: number;
   userId: number | null;
-  nListingsForUser: number;
 }
 export declare type TProducts = IProduct[];
+
+export interface IProductInfo extends IProduct
+{
+  nListingsForUser: number;
+}
 
 export interface TNewProduct
 {
