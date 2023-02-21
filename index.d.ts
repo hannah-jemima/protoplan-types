@@ -185,6 +185,7 @@ export interface IListingInfo extends TProduct, IListingCostCalculationData
   scrapeTime: Date | null;
   vendorId: number;
   vendorName: string;
+  vendorInfo: string | null;
   inaccessible: boolean;
   currencyId: number;
   url: string;
