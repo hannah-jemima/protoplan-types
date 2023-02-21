@@ -66,6 +66,7 @@ interface IListingBase
   formId: number,
   vendorId: number,
   vendorName: string,
+  vendorInfo: string | null;
   vendorScrapeTime: Date | null,
   price: number,
   scrapedPrice: number | null,
