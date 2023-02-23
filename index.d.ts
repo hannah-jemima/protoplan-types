@@ -109,6 +109,7 @@ export interface IListingCostCalculationData
   baseTax: number;
   taxPercent: number;
   taxBracketEnd: number | null;
+  salesTax: number;
   userCurrencyCode: string;
   userCountryId: number;
 }
