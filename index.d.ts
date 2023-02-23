@@ -128,6 +128,7 @@ interface IListingForUserProps
   vendorBaseTax: number | null,
   vendorTaxPercent: number | null,
   vendorTaxBracketEnd: number | null,
+  salesTax: number
 }
 
 export type TListingForUserInit = IListingInit & IListingForUserProps
