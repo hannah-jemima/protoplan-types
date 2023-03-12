@@ -260,7 +260,7 @@ export interface IProtocolRowInfo extends IListingInfo, TProtocolRowCostCalculat
 
 export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
 
-export interface IProtocolTableRow extends TProtocolRowData
+export interface IProtocolTableRow extends TProtocolRowData, IProductInfo
 {
   doseId: number;
   priority: number;
