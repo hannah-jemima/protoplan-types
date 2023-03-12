@@ -324,15 +324,15 @@ export interface TUnit
 }
 export declare type TUnits = TUnit[];
 
-export interface TUnitConversion
+export interface IUnitConversion
 {
   unitConversionId: number;
-  productId: number;
+  productId: number | null;
   fromUnitId: number;
   toUnitId: number;
   factor: number;
 }
-export declare type TUnitConversions = TUnitConversion[];
+export declare type TUnitConversions = IUnitConversion[];
 
 
 export interface IOrderReminder
