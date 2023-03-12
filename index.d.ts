@@ -186,7 +186,7 @@ export interface TListingCosts extends IListingCostCalculationData
   priceWithTax: number;
 }
 
-export interface IListingInfo extends IProduct, IListingCostCalculationData
+export interface IListingInfo extends IProductInfo, IListingCostCalculationData
 {
   listingName: string;
   amountUnit: string;
