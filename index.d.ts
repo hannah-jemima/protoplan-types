@@ -85,7 +85,12 @@ interface IListingBase
   url: string,
   deliveryCountryId: number,
   currencyId: number,
-  userId: number
+  userId: number,
+  discountId: number,
+  discountTitle: string | null,
+  savingPercent: number,
+  discountDesc: string | null,
+  discountCompounds: number
 }
 
 export interface IListingInit extends IListingBase
