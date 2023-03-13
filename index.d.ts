@@ -112,7 +112,6 @@ export interface IListingCostCalculationData
   userCurrencyCode: string;
   userCountryId: number;
   discounts: IDiscount[];
-  appliedDiscountIds: number[];
 }
 
 interface IListingForUserProps
