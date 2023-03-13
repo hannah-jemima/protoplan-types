@@ -97,6 +97,7 @@ export interface IListingCostCalculationData
   listingId: number;
   productId: number;
   price: number;
+  discountedPrice: number;
   listingCurrencyCode: string;
   deliveryPerListing: number | null;
   deliveryPrice: number;
@@ -183,7 +184,6 @@ interface IBundleSaving
 export interface TListingCosts extends IListingCostCalculationData
 {
   exchangeRate: number;
-  discountedPrice: number;
   priceWithTax: number;
 }
 
