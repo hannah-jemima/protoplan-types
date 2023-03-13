@@ -55,8 +55,7 @@ export interface TNewProduct
   recDoseUnitId?: number
 }
 
-
-interface IListingBase
+interface IListingBase extends IDiscountInit
 {
   listingId: number,
   listingName: string,
@@ -86,11 +85,6 @@ interface IListingBase
   deliveryCountryId: number,
   currencyId: number,
   userId: number,
-  discountId: number,
-  discountTitle: string | null,
-  savingPercent: number,
-  discountDesc: string | null,
-  discountCompounds: number
 }
 
 export interface IListingInit extends IListingBase
@@ -117,6 +111,8 @@ export interface IListingCostCalculationData
   salesTax: number;
   userCurrencyCode: string;
   userCountryId: number;
+  discounts: IDiscount[];
+  appliedDiscountIds: number[];
 }
 
 interface IListingForUserProps
@@ -188,6 +184,7 @@ interface IBundleSaving
 export interface TListingCosts extends IListingCostCalculationData
 {
   exchangeRate: number;
+  discountedPrice: number;
   priceWithTax: number;
 }
 
@@ -205,7 +202,6 @@ export interface IListingInfo extends IProduct, IListingCostCalculationData
   userId: number | null;
   deliveryCountryId: number | null;
   listingCurrencySymbol: string;
-
   deliveryPriceEstimated: boolean;
   basketLimitEstimated: boolean;
   taxEstimated: boolean;
@@ -345,4 +341,26 @@ export interface IOrderReminder
   orderReminder: boolean | null,
   reminderDate: Date | null,
   reminderFrequency: string | null
+}
+
+export interface IDiscountInit
+{
+  discountId: number,
+  discountTitle: string | null,
+  savingPercent: number,
+  discountDesc: string | null,
+  discountCompounds: number
+}
+
+export interface IDiscountBase
+{
+  discountId: number,
+  title: string | null,
+  savingPercent: number,
+  desc: string | null
+}
+
+export interface IDiscount extends IDiscountBase
+{
+  applied: boolean
 }
