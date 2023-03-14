@@ -357,10 +357,11 @@ export interface IDiscountBase
   discountId: number,
   title: string | null,
   savingPercent: number,
-  desc: string | null
+  desc: string | null,
 }
 
 export interface IDiscount extends IDiscountBase
 {
+  compounds: boolean,
   applied: boolean
 }
