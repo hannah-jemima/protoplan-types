@@ -118,7 +118,6 @@ export interface IListingCostCalculationData
 interface IListingForUserProps
 {
   exchangeRate: number,
-  vendorDeliveryCountryId: number,
   deliveryPrice: number,
   basketLimit: number | null,
   userCountryId: number,
@@ -276,6 +275,7 @@ export type TProtocolTable = IProtocolTableRow[];
 
 export interface ISaving
 {
+  savingId: number,
   saving: number
 }
 
