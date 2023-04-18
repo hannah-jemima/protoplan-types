@@ -1,12 +1,12 @@
 {
   "name": "@protoplan/types",
-  "version": "24.0.0",
+  "version": "24.0.1",
   "description": "",
   "main": "./index.js",
   "types": "./index.d.ts",
   "module": "",
   "scripts": {
-    "build": "npm update",
+    "build": "npm update && tsc",
     "commit": "git add . & git commit -m publishing",
     "prepublishOnly": "npm run build & npm run commit",
     "pub": "npm publish --access public"
