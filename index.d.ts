@@ -339,7 +339,7 @@ export declare type TUnitConversions = IUnitConversion[];
 
 
 
-export enum OrderReminderFrequency
+export declare enum OrderReminderFrequency
 {
   MONTHLY = 'Monthly',
   FOURWEEKLY = 'Every 4 weeks',
