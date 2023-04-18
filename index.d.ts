@@ -338,12 +338,15 @@ export interface IUnitConversion
 export declare type TUnitConversions = IUnitConversion[];
 
 
-export interface IOrderReminder
+
+export enum OrderReminderFrequency
 {
-  orderReminder: boolean | null,
-  reminderDate: Date | null,
-  reminderFrequency: string | null
+  MONTHLY = 'Monthly',
+  FOURWEEKLY = 'Every 4 weeks',
+  FORTNIGHTLY = 'Fortnightly',
+  WEEKLY = 'Weekly'
 }
+
 
 export interface IDiscountInit
 {
