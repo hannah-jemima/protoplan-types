@@ -158,7 +158,7 @@ export type TBundleListingInit = IListingInit & IBundleProps;
 export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
 
 
-interface IBundleSaving
+export interface IBundleSaving
 {
   savingId: number
 
