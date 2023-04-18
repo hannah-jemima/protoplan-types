@@ -1,6 +1,6 @@
 {
   "name": "@protoplan/types",
-  "version": "27.0.1",
+  "version": "27.0.2",
   "description": "",
   "types": "./dist/index.d.ts",
   "module": "",

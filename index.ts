@@ -55,7 +55,7 @@ export interface TNewProduct
   recDoseUnitId?: number
 }
 
-interface IListingBase extends IDiscountInit
+export interface IListingBase extends IDiscountInit
 {
   listingId: number,
   listingName: string,
@@ -115,7 +115,7 @@ export interface IListingCostCalculationData
   discounts: IDiscount[];
 }
 
-interface IListingForUserProps
+export interface IListingForUserProps
 {
   exchangeRate: number,
   deliveryPrice: number,

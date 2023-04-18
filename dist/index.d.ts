@@ -39,7 +39,7 @@ export interface TNewProduct {
     recDose?: number;
     recDoseUnitId?: number;
 }
-interface IListingBase extends IDiscountInit {
+export interface IListingBase extends IDiscountInit {
     listingId: number;
     listingName: string;
     brandName: string;
@@ -93,7 +93,7 @@ export interface IListingCostCalculationData {
     userCountryId: number;
     discounts: IDiscount[];
 }
-interface IListingForUserProps {
+export interface IListingForUserProps {
     exchangeRate: number;
     deliveryPrice: number;
     basketLimit: number | null;
@@ -289,4 +289,3 @@ export interface IDiscount extends IDiscountBase {
     compounds: boolean;
     applied: boolean;
 }
-export {};
