@@ -266,12 +266,6 @@ export interface IUnitConversion {
     factor: number;
 }
 export declare type TUnitConversions = IUnitConversion[];
-export declare enum OrderReminderFrequency {
-    MONTHLY = "Monthly",
-    FOURWEEKLY = "Every 4 weeks",
-    FORTNIGHTLY = "Fortnightly",
-    WEEKLY = "Weekly"
-}
 export interface IDiscountInit {
     discountId: number;
     discountTitle: string | null;
@@ -288,4 +282,15 @@ export interface IDiscountBase {
 export interface IDiscount extends IDiscountBase {
     compounds: boolean;
     applied: boolean;
+}
+export declare enum OrderReminderFrequency {
+    MONTHLY = "Monthly",
+    FOURWEEKLY = "Every 4 weeks",
+    FORTNIGHTLY = "Fortnightly",
+    WEEKLY = "Weekly"
+}
+export interface IOrderReminder {
+    active: number;
+    date: Date;
+    frequency: OrderReminderFrequency;
 }
