@@ -290,7 +290,7 @@ export declare enum OrderReminderFrequency {
     WEEKLY = "Weekly"
 }
 export interface IOrderReminder {
-    active?: number;
+    active?: boolean;
     date?: Date;
     frequency?: OrderReminderFrequency;
 }
