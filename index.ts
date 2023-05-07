@@ -374,7 +374,7 @@ export enum OrderReminderFrequency
 
 export interface IOrderReminder
 {
-  active: number,
-  date: Date,
-  frequency: OrderReminderFrequency
+  active?: number,
+  date?: Date,
+  frequency?: OrderReminderFrequency
 }
