@@ -284,13 +284,13 @@ export interface IDiscount extends IDiscountBase {
     applied: boolean;
 }
 export declare enum OrderReminderFrequency {
-    MONTHLY = "Monthly",
-    FOURWEEKLY = "Every 4 weeks",
-    FORTNIGHTLY = "Fortnightly",
-    WEEKLY = "Weekly"
+    MONTHLY = 30,
+    FOURWEEKLY = 28,
+    FORTNIGHTLY = 14,
+    WEEKLY = 7
 }
 export interface IOrderReminder {
     active?: boolean;
-    date?: Date;
+    date?: Date | null;
     frequency?: OrderReminderFrequency;
 }
