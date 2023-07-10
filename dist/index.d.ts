@@ -1,3 +1,4 @@
+import * as icons from '@mui/icons-material';
 export interface TOption {
     label: string;
     value: number;
@@ -294,3 +295,4 @@ export interface IOrderReminder {
     date?: Date | null;
     frequency?: OrderReminderFrequency;
 }
+export type KIconName = keyof typeof icons;

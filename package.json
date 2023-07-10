@@ -1,6 +1,6 @@
 {
   "name": "@protoplan/types",
-  "version": "28.0.0",
+  "version": "28.1.0",
   "description": "",
   "types": "./dist/index.d.ts",
   "main": "index.js",
@@ -12,6 +12,7 @@
     "pub": "npm publish --access public"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.13.7",
     "@types/node-dijkstra": "^2.5.2",
     "node-dijkstra": "^2.5.0"
   },
