@@ -204,15 +204,6 @@ export interface IProtocolRowInfo extends IListingInfo, TProtocolRowCostCalculat
     doseUnit: string;
 }
 export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
-export interface IProtocolTableRow extends TProtocolRowData, IProductInfo {
-    doseId: number;
-    priority: number;
-    unitOptions: TOption[];
-    checked?: boolean;
-    listingSavings?: TSavingRow[];
-    bundleSavings?: IBundleSaving[];
-}
-export type TProtocolTable = IProtocolTableRow[];
 export interface ISaving {
     savingId: number;
     saving: number;

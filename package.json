@@ -1,6 +1,6 @@
 {
   "name": "@protoplan/types",
-  "version": "28.1.1",
+  "version": "29.0.0",
   "description": "",
   "types": "./dist/index.d.ts",
   "main": "index.js",
@@ -14,9 +14,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.13.7",
-    "@mui/system": "^5.13.7",
-    "@mui/utils": "^5.13.7",
+    "@mui/icons-material": "^5.14.1",
+    "@mui/system": "^5.14.1",
+    "@mui/utils": "^5.14.1",
     "@types/node-dijkstra": "^2.5.2",
     "node-dijkstra": "^2.5.0"
   },

@@ -263,18 +263,6 @@ export interface IProtocolRowInfo extends IListingInfo, TProtocolRowCostCalculat
 
 export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
 
-export interface IProtocolTableRow extends TProtocolRowData, IProductInfo
-{
-  doseId: number;
-  priority: number;
-  unitOptions: TOption[],
-  checked?: boolean
-  listingSavings?: TSavingRow[];
-  bundleSavings?: IBundleSaving[];   // duplicate bundle saving data for every protocol row bundle replaces (for now)
-}
-
-export type TProtocolTable = IProtocolTableRow[];
-
 
 export interface ISaving
 {
