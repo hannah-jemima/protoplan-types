@@ -1,6 +1,6 @@
 import * as icons from '@mui/icons-material';
 
-export interface TOption
+export interface IOption
 {
   label: string;
   value: number;
@@ -38,14 +38,13 @@ export interface IProduct
   formId: number;
   userId: number | null;
 }
-export declare type TProducts = IProduct[];
 
 export interface IProductInfo extends IProduct
 {
   nListingsForUser: number;
 }
 
-export interface TNewProduct
+export interface INewProduct
 {
   name: string,
   brandId?: number,
@@ -163,10 +162,10 @@ export interface IBundleSaving
 {
   savingId: number
 
-  replacableRows: (TProtocolRowData & { doseId: number })[];
+  replaceableRows: (TProtocolRowData & { doseId: number })[];
 
-  replacableRowsCostPerMonth: number;
-  replacableRowsFeesPerMonth: number,
+  replaceableRowsCostPerMonth: number;
+  replaceableRowsFeesPerMonth: number,
 
   bundle: TProtocolRowData[],
 
@@ -179,12 +178,12 @@ export interface IBundleSaving
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
 
-  // bundleSaving = replacable rows costs - (bundle costs + leftover products costs), +ve for saving
+  // bundleSaving = replaceable rows costs - (bundle costs + leftover products costs), +ve for saving
   bundleSaving: number;
 }
 
 
-export interface TListingCosts extends IListingCostCalculationData
+export interface IListingCosts extends IListingCostCalculationData
 {
   exchangeRate: number;
   priceWithTax: number;
@@ -209,9 +208,9 @@ export interface IListingInfo extends IProduct, IListingCostCalculationData
   taxEstimated: boolean;
 }
 
-export type TListingTableRow = TListingCosts & IListingInfo;
+export type TListingTableRow = IListingCosts & IListingInfo;
 
-export interface TNewListing
+export interface INewListing
 {
   name: string,
   productId: number,
@@ -222,7 +221,7 @@ export interface TNewListing
   url: string
 }
 
-export interface TVendor
+export interface IVendor
 {
   vendorId: number;
   name: string;
@@ -230,10 +229,9 @@ export interface TVendor
   scrapeTime: Date;
   vendorTaxPercent: number | null;
 }
-export declare type TVendors = TVendor[];
 
 
-export interface TProtocolRowCostCalculationData extends IListingCostCalculationData
+export interface IProtocolRowCostCalculationData extends IListingCostCalculationData
 {
   amount: number;
   dose: number;
@@ -243,7 +241,7 @@ export interface TProtocolRowCostCalculationData extends IListingCostCalculation
   daysPerMonth: number;
 }
 
-export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalculationData
+export interface IProtocolRowCosts extends IListingCosts, IProtocolRowCostCalculationData
 {
   productsPerMonth: number;
   listingsPerMonth: number;
@@ -254,12 +252,12 @@ export interface TProtocolRowCosts extends TListingCosts, TProtocolRowCostCalcul
   feesPerMonth: number;
 }
 
-export interface IProtocolRowInfo extends IListingInfo, TProtocolRowCostCalculationData
+export interface IProtocolRowInfo extends IListingInfo, IProtocolRowCostCalculationData
 {
   doseUnit: string;
 }
 
-export type TProtocolRowData = IProtocolRowInfo & TProtocolRowCosts;
+export type TProtocolRowData = IProtocolRowInfo & IProtocolRowCosts;
 
 
 export interface ISaving
@@ -271,7 +269,7 @@ export interface ISaving
 export type TSavingRow = ISaving & TProtocolRowData & TListingTableRow;
 
 
-export declare type TTopic =
+export declare interface ITopic
 {
   topicId: number;
   name: string;
@@ -313,13 +311,12 @@ export interface ISpiel
   refs: { refId: number, timestamp: string }[],
 }
 
-export interface TUnit
+export interface IUnit
 {
   unitId: number;
   name: string;
   formId: number;
 }
-export declare type TUnits = TUnit[];
 
 export interface IUnitConversion
 {
@@ -329,7 +326,6 @@ export interface IUnitConversion
   toUnitId: number;
   factor: number;
 }
-export declare type TUnitConversions = IUnitConversion[];
 
 
 

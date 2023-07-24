@@ -1,3 +1,4 @@
+;
 export var OrderReminderFrequency;
 (function (OrderReminderFrequency) {
     OrderReminderFrequency[OrderReminderFrequency["MONTHLY"] = 30] = "MONTHLY";
