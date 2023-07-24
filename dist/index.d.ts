@@ -165,7 +165,6 @@ export interface IListingInfo extends IProduct, IListingCostCalculationData {
     taxEstimated: boolean;
 }
 export type TListingTableRow = TListingCosts & IListingInfo;
-export type TListingsTable = TListingTableRow[];
 export interface TNewListing {
     name: string;
     productId: number;

@@ -271,22 +271,29 @@ export interface ISaving
 export type TSavingRow = ISaving & TProtocolRowData & TListingTableRow;
 
 
-export declare type TTopic = {
+export declare type TTopic =
+{
   topicId: number;
   name: string;
 };
-export interface IRef {
+
+export interface IRef
+{
   refId: number;
   title: string;
   date: Date;
   timestamp: string | null;
 }
-export interface IBookRef extends IRef {
+
+export interface IBookRef extends IRef
+{
   bookId: number;
   pageNo: number | null;
   bookFormat: string;
 }
-export interface IPostRef extends IRef {
+
+export interface IPostRef extends IRef
+{
   url: string;
   platformId: number;
   platform: string;
