@@ -127,16 +127,16 @@ export type TBundleListingInit = IListingInit & IBundleProps;
 export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit;
 export interface IBundleSaving {
     savingId: number;
-    replaceableRows: (TProtocolRowData & {
-        doseId: number;
+    replaceableRows: (TDosingRowData & {
+        dosingId: number;
     })[];
     replaceableRowsCostPerMonth: number;
     replaceableRowsFeesPerMonth: number;
-    bundle: TProtocolRowData[];
+    bundle: TDosingRowData[];
     bundleCostPerMonth: number;
     bundleFeesPerMonth: number;
-    leftoverProducts: (TProtocolRowData & {
-        doseId: number;
+    leftoverProducts: (TDosingRowData & {
+        dosingId: number;
     })[];
     leftoverProductsCostPerMonth: number;
     leftoverProductsFeesPerMonth: number;
@@ -180,7 +180,7 @@ export interface IVendor {
     scrapeTime: Date;
     vendorTaxPercent: number | null;
 }
-export interface IProtocolRowCostCalculationData extends IListingCostCalculationData {
+export interface IDosingCostCalculationData extends IListingCostCalculationData {
     amount: number;
     dose: number;
     doseUnitId: number;
@@ -188,7 +188,7 @@ export interface IProtocolRowCostCalculationData extends IListingCostCalculation
     dosesPerDay: number;
     daysPerMonth: number;
 }
-export interface IProtocolRowCosts extends IListingCosts, IProtocolRowCostCalculationData {
+export interface IDosingCosts extends IListingCosts, IDosingCostCalculationData {
     productsPerMonth: number;
     listingsPerMonth: number;
     repurchase: number;
@@ -197,15 +197,15 @@ export interface IProtocolRowCosts extends IListingCosts, IProtocolRowCostCalcul
     ordersPerMonth: number;
     feesPerMonth: number;
 }
-export interface IProtocolRowInfo extends IListingInfo, IProtocolRowCostCalculationData {
+export interface IDosingInfo extends IListingInfo, IDosingCostCalculationData {
     doseUnit: string;
 }
-export type TProtocolRowData = IProtocolRowInfo & IProtocolRowCosts;
+export type TDosingRowData = IDosingInfo & IDosingCosts;
 export interface ISaving {
     savingId: number;
     saving: number;
 }
-export type TSavingRow = ISaving & TProtocolRowData & TListingTableRow;
+export type TSavingRow = ISaving & TDosingRowData & TListingTableRow;
 export declare interface ITopic {
     topicId: number;
     name: string;
