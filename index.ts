@@ -24,13 +24,11 @@ export interface ICountry
 
 
 
-export interface IProduct
+export interface IProduct extends IProductAmount
 {
   productId: number;
   productName: string;
   brandName: string;
-  amount: number;
-  amountUnitId: number;
   amountUnit: string;
   recDoseUnitId: number | null;
   recDoseUnit: string | null;
@@ -43,26 +41,22 @@ export interface IProductInfo extends IProduct
   nListingsForUser: number;
 }
 
-export interface INewProduct
+export interface INewProduct extends Partial<IProductAmount>
 {
   name: string,
   brandId?: number,
   brandName?: string,
-  amount?: number,
-  amountUnitId?: number,
   recDose?: number,
   recDoseUnitId?: number
 }
 
-export interface IListingBase extends IDiscountInit
+export interface IListingBase extends IDiscountInit, IProductAmount
 {
   listingId: number,
   listingName: string,
   brandName: string,
   productId: number,
   productName: string,
-  amount: number,
-  amountUnitId: number,
   amountUnit: string,
   recDoseUnitId: number | null,
   recDoseUnit: string | null,
@@ -229,18 +223,24 @@ export interface IVendor
   vendorTaxPercent: number | null;
 }
 
-
-export interface IDosingCostCalculationData extends IListingCostCalculationData
+export interface IDose
 {
-  amount: number;
   dose: number;
   doseUnitId: number;
-  amountUnitId: number;
   dosesPerDay: number;
   daysPerMonth: number;
 }
 
-export interface IDosingCosts extends IListingCosts, IDosingCostCalculationData
+export interface IProductAmount
+{
+  amount: number;
+  amountUnitId: number;
+}
+
+export type TDosingCostCalculationData = IListingCostCalculationData & IDose & IProductAmount
+
+
+export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
 {
   productsPerMonth: number;
   listingsPerMonth: number;
@@ -251,7 +251,7 @@ export interface IDosingCosts extends IListingCosts, IDosingCostCalculationData
   feesPerMonth: number;
 }
 
-export interface IDosingInfo extends IListingInfo, IDosingCostCalculationData
+export interface IDosingInfo extends IListingInfo, TDosingCostCalculationData
 {
   doseUnit: string;
 }
