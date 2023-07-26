@@ -173,7 +173,7 @@ export interface IVendor {
     scrapeTime: Date;
     vendorTaxPercent: number | null;
 }
-export interface IDose {
+export interface IDosing {
     dose: number;
     doseUnitId: number;
     dosesPerDay: number;
@@ -183,7 +183,7 @@ export interface IProductAmount {
     amount: number;
     amountUnitId: number;
 }
-export type TDosingCostCalculationData = IListingCostCalculationData & IDose & IProductAmount;
+export type TDosingCostCalculationData = IListingCostCalculationData & IDosing & IProductAmount;
 export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData {
     productsPerMonth: number;
     listingsPerMonth: number;

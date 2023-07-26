@@ -223,7 +223,7 @@ export interface IVendor
   vendorTaxPercent: number | null;
 }
 
-export interface IDose
+export interface IDosing
 {
   dose: number;
   doseUnitId: number;
@@ -237,7 +237,7 @@ export interface IProductAmount
   amountUnitId: number;
 }
 
-export type TDosingCostCalculationData = IListingCostCalculationData & IDose & IProductAmount
+export type TDosingCostCalculationData = IListingCostCalculationData & IDosing & IProductAmount
 
 
 export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
