@@ -19,6 +19,7 @@ export interface IProduct extends IProductAmount {
     productName: string;
     brandName: string;
     amountUnit: string;
+    recDose: number | null;
     recDoseUnitId: number | null;
     recDoseUnit: string | null;
     formId: number;
