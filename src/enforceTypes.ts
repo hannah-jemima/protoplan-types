@@ -1,4 +1,4 @@
-import { IBundleSaving, IDiscount, TSavingRow } from "..";
+import { IBundleSaving, IDiscount, TSavingRow } from ".";
 
 interface IEnforceTypesBase
 {

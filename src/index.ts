@@ -1,4 +1,9 @@
-import { enforceDosingsTypes, enforceListingTypes } from './src/enforceTypes';
+import { enforceDosingsTypes, enforceListingTypes, IEnforcableTypes, IEnforcableProps } from './enforceTypes';
+export {
+  enforceDosingsTypes,
+  enforceListingTypes,
+  IEnforcableTypes,
+  IEnforcableProps };
 
 export interface IOption
 {
@@ -369,7 +374,3 @@ export interface IOrderReminder
   date?: Date | null,
   frequency?: OrderReminderFrequency
 }
-
-export {
-  enforceDosingsTypes,
-  enforceListingTypes };

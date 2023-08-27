@@ -6,11 +6,10 @@
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "declarationDir": "./dist",
+    "outDir": "./lib",
     "declaration": true
   },
   "include": [
-    "src",
-    "index.ts"
+    "src"
   ]
 }
