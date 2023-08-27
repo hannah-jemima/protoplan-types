@@ -1,3 +1,4 @@
+import { enforceDosingsTypes, enforceListingTypes } from './src/enforceTypes';
 export interface IOption {
     label: string;
     value: number;
@@ -278,3 +279,4 @@ export interface IOrderReminder {
     date?: Date | null;
     frequency?: OrderReminderFrequency;
 }
+export { enforceDosingsTypes, enforceListingTypes };
