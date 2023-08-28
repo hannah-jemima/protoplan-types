@@ -1,4 +1,4 @@
-import { enforceDosingsTypes, enforceListingTypes, IEnforcableTypes, IEnforcableProps } from './enforceTypes';
+import { enforceDosingsTypes, enforceListingTypes, IEnforcableTypes, IEnforcableProps } from './enforceTypes.js';
 export {
   enforceDosingsTypes,
   enforceListingTypes,
