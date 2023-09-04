@@ -45,7 +45,7 @@ export interface IProduct extends IProductAmount
 
 export interface IProductInfo extends IProduct
 {
-  deliverableListingsForUser: number;
+  deliverableListingsForUser: boolean;
 }
 
 export interface INewProduct extends Partial<IProductAmount>
