@@ -265,6 +265,16 @@ export interface IDosingInfo extends IListingInfo, TDosingCostCalculationData
 
 export type TDosingRowData = IDosingInfo & IDosingCosts;
 
+export interface IDosingRowState
+{
+  checked?: boolean;
+  priority: number;
+}
+
+export interface IDosingRow extends TDosingRowData, IProductInfo, IDosingRowState
+{
+  dosingId: number;
+}
 
 export interface ISaving
 {
