@@ -30,7 +30,7 @@ export interface ICountry
 
 
 
-export interface IProduct extends IProductAmount
+export interface Product extends Amount
 {
   productId: number;
   productName: string;
@@ -43,12 +43,12 @@ export interface IProduct extends IProductAmount
   userId: number | null;
 }
 
-export interface IProductInfo extends IProduct
+export interface IProductInfo extends Product
 {
   deliverableListingsForUser: boolean;
 }
 
-export interface INewProduct extends Partial<IProductAmount>
+export interface INewProduct extends Partial<Amount>
 {
   name: string,
   brandId?: number,
@@ -57,7 +57,7 @@ export interface INewProduct extends Partial<IProductAmount>
   recDoseUnitId?: number
 }
 
-export interface IListingBase extends IDiscountInit, IProductAmount
+export interface IListingBase extends IDiscountInit, Amount
 {
   listingId: number,
   listingName: string,
@@ -92,7 +92,12 @@ export interface IListingInit extends IListingBase
   inaccessible: number | null
 }
 
-export interface IListingCostCalculationData
+export interface Product
+{
+
+}
+
+export interface ListingCostCalculationData
 {
   listingId: number;
   productId: number;
@@ -183,13 +188,13 @@ export interface IBundleSaving
 }
 
 
-export interface IListingCosts extends IListingCostCalculationData
+export interface IListingCosts extends ListingCostCalculationData
 {
   exchangeRate: number;
   priceWithTax: number;
 }
 
-export interface IListingInfo extends IProduct, IListingCostCalculationData
+export interface IListingInfo extends Product, ListingCostCalculationData
 {
   listingName: string;
   amountUnit: string;
@@ -221,7 +226,7 @@ export interface INewListing
   url: string
 }
 
-export interface IVendor
+export interface Vendor
 {
   vendorId: number;
   name: string;
@@ -230,7 +235,7 @@ export interface IVendor
   vendorTaxPercent: number | null;
 }
 
-export interface IDosing
+export interface Dosing
 {
   dose: number;
   doseUnitId: number;
@@ -238,13 +243,18 @@ export interface IDosing
   daysPerMonth: number;
 }
 
-export interface IProductAmount
+export interface DosingInfo extends Dosing
+{
+  doseUnit: string;
+}
+
+export interface Amount
 {
   amount: number;
   amountUnitId: number;
 }
 
-export type TDosingCostCalculationData = IListingCostCalculationData & IDosing & IProductAmount
+export type TDosingCostCalculationData = ListingCostCalculationData & Dosing & Amount
 
 
 export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
@@ -258,12 +268,12 @@ export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
   feesPerMonth: number;
 }
 
-export interface IDosingInfo extends IListingInfo, TDosingCostCalculationData
+export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostCalculationData>
 {
   doseUnit: string;
 }
 
-export type TDosingRowData = IDosingInfo & IDosingCosts;
+export type TDosingRowData = IDosingInfo & Partial<IDosingCosts>;
 
 export interface IDosingRowState
 {
@@ -271,7 +281,7 @@ export interface IDosingRowState
   priority: number;
 }
 
-export interface IDosingRow extends TDosingRowData, IProductInfo, IDosingRowState
+export interface IDosingRow extends TDosingRowData, Partial<Product>, IDosingRowState
 {
   dosingId: number;
 }
