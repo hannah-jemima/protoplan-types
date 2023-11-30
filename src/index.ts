@@ -167,18 +167,18 @@ export interface IBundleSaving
 {
   savingId: number
 
-  replaceableRows: (TDosingRowData & { dosingId: number })[];
+  replaceableRows: (IDosingInfo & IDosingCosts & { dosingId: number })[];
 
   replaceableRowsCostPerMonth: number;
   replaceableRowsFeesPerMonth: number,
 
-  bundle: TDosingRowData[],
+  bundle: (IDosingInfo & IDosingCosts)[],
 
   bundleCostPerMonth: number;
   bundleFeesPerMonth: number;
 
   // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
-  leftoverProducts: (TDosingRowData & { dosingId: number })[];
+  leftoverProducts: (IDosingInfo & IDosingCosts & { dosingId: number })[];
 
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
