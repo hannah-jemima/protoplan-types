@@ -2,22 +2,22 @@ import { IBundleSaving, IDiscount, TSavingRow } from ".";
 
 interface IEnforceTypesBase
 {
-  price: number,
+  price?: number,
   discountedPrice?: number,
   baseTax?: number,
   taxPercent?: number,
   salesTax?: number,
   deliveryPrice?: number,
   exchangeRate?: number,
-  amount: number,
-  amountUnit: string,
+  amount?: number,
+  amountUnit?: string,
   scrapeTime?: Date | null,
   basketLimit?: number | null
 }
 
 export interface IEnforcableTypes extends IEnforceTypesBase
 {
-  inaccessible: number | null | boolean,
+  inaccessible?: number | null | boolean,
   discounts?: IDiscount[]
 }
 
@@ -26,6 +26,15 @@ export interface IEnforcableProps extends IEnforcableTypes
   listingSavings?: TSavingRow[] | null,
   bundleSavings?: IBundleSaving[] | null
 }
+
+
+export function enforceListingTypes<T>(listings: (T & IEnforcableProps & { priceWithTax: number })[])
+{
+  return enforceDosingsTypes(listings).map(l => ({
+    ...l,
+    priceWithTax: Number(l.priceWithTax) }));
+}
+
 
 export function enforceDosingsTypes<T>(rows: (T & IEnforcableProps)[])
 {
@@ -43,24 +52,33 @@ function enforceDosingTypes<T>(row: T & IEnforcableTypes)
 {
   return {
     ...row,
-    price: Number(row.price),
-    discountedPrice: row.discountedPrice !== undefined ? Number(row.discountedPrice) : undefined,
-    baseTax: row.baseTax !== undefined ? Number(row.baseTax) : undefined,
-    taxPercent: row.taxPercent !== undefined ? Number(row.taxPercent) : undefined,
-    salesTax: row.salesTax !== undefined ? Number(row.salesTax) : undefined,
-    deliveryPrice: row.deliveryPrice !== undefined ? Number(row.deliveryPrice) : undefined,
-    exchangeRate: row.exchangeRate !== undefined ? Number(row.exchangeRate) : undefined,
-    amount: Number(row.amount),
-    amountUnit: String(row.amountUnit),
-    scrapeTime: row.scrapeTime ? new Date(row.scrapeTime) : row.scrapeTime,
-    basketLimit: row.basketLimit ? Number(row.basketLimit) : row.basketLimit,
+    price: asNumberOrUndefined(row.price),
+    discountedPrice: asNumberOrUndefined(row.discountedPrice),
+    baseTax: asNumberOrUndefined(row.baseTax),
+    taxPercent: asNumberOrUndefined(row.taxPercent),
+    salesTax: asNumberOrUndefined(row.salesTax),
+    deliveryPrice: asNumberOrUndefined(row.deliveryPrice),
+    exchangeRate: asNumberOrUndefined(row.exchangeRate),
+    amount: asNumberOrUndefined(row.amount),
+    amountUnit: asStringOrUndefined(row.amountUnit),
+    scrapeTime: asDateOrUndefined(row.scrapeTime),
+    basketLimit: asNumberOrUndefined(row.basketLimit),
     inaccessible: row.inaccessible === 1,
     discounts: row.discounts?.map(d => ({ ...d, savingPercent: Number(d.savingPercent) })) };
 }
 
-export function enforceListingTypes<T>(listings: (T & IEnforcableProps & { priceWithTax: number })[])
+function asNumberOrUndefined(prop?: number | null)
 {
-  return enforceDosingsTypes(listings).map(l => ({
-    ...l,
-    priceWithTax: Number(l.priceWithTax) }));
+  return prop !== undefined ? Number(prop) : undefined;
 }
+
+function asStringOrUndefined(prop?: string)
+{
+  return prop !== undefined ? String(prop) : undefined;
+}
+
+function asDateOrUndefined(prop?: Date | null)
+{
+  return prop ? new Date(prop) : undefined;
+}
+
