@@ -292,7 +292,7 @@ export interface ISaving
   saving: number
 }
 
-export type TSavingRow = ISaving & TDosingRowData & TListingTableRow;
+export type TSavingRow = ISaving & IDosingInfo & IDosingCosts & TListingTableRow;
 
 
 export declare interface ITopic
