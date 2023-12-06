@@ -53,6 +53,7 @@ export interface NewProduct extends Partial<Amount>
   name: string,
   brandId?: number,
   brandName?: string,
+  formId: number,
   amountUnit?: string,
   recDose?: number,
   recDoseUnit?: string,
