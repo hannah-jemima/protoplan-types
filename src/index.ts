@@ -48,13 +48,15 @@ export interface IProductInfo extends Product
   deliverableListingsForUser: boolean;
 }
 
-export interface INewProduct extends Partial<Amount>
+export interface NewProduct extends Partial<Amount>
 {
   name: string,
   brandId?: number,
   brandName?: string,
+  amountUnit?: string,
   recDose?: number,
-  recDoseUnitId?: number
+  recDoseUnit?: string,
+  recDoseUnitId?: number,
 }
 
 export interface IListingBase extends IDiscountInit, Amount
