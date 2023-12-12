@@ -58,6 +58,9 @@ export interface NewProduct extends Partial<Amount>
   recDose?: number,
   recDoseUnit?: string,
   recDoseUnitId?: number,
+  recDosesPerDay?: number,
+  activeIngredientPerRecDose?: number,
+  activeIngredientPerRecDoseUnitId?: number
 }
 
 export interface IListingBase extends IDiscountInit, Amount
