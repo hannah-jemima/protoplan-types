@@ -53,14 +53,15 @@ export interface NewProduct extends Partial<Amount>
   name: string,
   brandId?: number,
   brandName?: string,
-  formId: number,
-  amountUnit?: string,
+  amount: number,
+  amountUnitId: number,
   recDose?: number,
   recDoseUnit?: string,
   recDoseUnitId?: number,
   recDosesPerDay?: number,
   activeIngredientPerRecDose?: number,
-  activeIngredientPerRecDoseUnitId?: number
+  activeIngredientPerRecDoseUnitId?: number,
+  userId: number
 }
 
 export interface IListingBase extends IDiscountInit, Amount
