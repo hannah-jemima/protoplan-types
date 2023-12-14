@@ -51,8 +51,10 @@ export interface IProductInfo extends Product
 export interface NewProduct extends Partial<Amount>
 {
   name: string,
-  brandId?: number,
+  brandId: number,
   brandName?: string,
+  suppId?: number,
+  suppName?: string,
   amount: number,
   amountUnitId: number,
   recDose?: number,
