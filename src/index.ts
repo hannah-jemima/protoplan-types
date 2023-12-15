@@ -223,7 +223,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
 
 export type TListingTableRow = IListingCosts & IListingInfo;
 
-export interface INewListing
+export interface NewListing
 {
   name: string,
   productId: number,
@@ -231,7 +231,8 @@ export interface INewListing
   vendorName: string,
   price: number,
   currencyId: number | null | undefined,
-  url: string
+  url: string,
+  bundleProducts: { productId: number, quantity: number }[]
 }
 
 export interface Vendor
