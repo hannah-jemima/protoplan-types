@@ -229,7 +229,7 @@ export interface NewListing
   productId: number,
   vendorId: number,
   vendorName: string,
-  price: number,
+  price: number | null,
   currencyId: number | null | undefined,
   url: string,
   bundleProducts: { productId: number, quantity: number }[]
