@@ -100,17 +100,11 @@ export interface IListingInit extends IListingBase
   inaccessible: number | null
 }
 
-export interface Product
-{
-
-}
-
 export interface ListingCostCalculationData
 {
   listingId: number;
   productId: number;
   price: number;
-  discountedPrice: number;
   listingCurrencyCode: string;
   deliveryPerListing: number | null;
   deliveryPrice: number;
