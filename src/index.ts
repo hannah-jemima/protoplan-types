@@ -108,18 +108,18 @@ export interface ListingCostCalculationData
   listingCurrencyCode: string;
   deliveryPerListing?: number;
   deliveryPrice?: number;
-  basketLimit: number;
-  bundleId?: number;
-  quantity: number;
-  nBundleProducts: number;
+  basketLimit?: number;
+  bundleId?: number | null;
+  quantity?: number;
+  nBundleProducts?: number;
   vendorCountryId: number;
-  baseTax: number;
-  taxPercent: number;
+  baseTax?: number;
+  taxPercent?: number;
   taxBracketEnd?: number;
-  salesTax: number;
+  salesTax?: number;
   userCurrencyCode: string;
   userCountryId: number;
-  discounts: IDiscount[];
+  discounts?: IDiscount[];
 }
 
 export interface IListingForUserProps
