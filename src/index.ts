@@ -189,11 +189,36 @@ export interface IBundleSaving
   bundleSaving: number;
 }
 
+export interface ListingCostCalculationData2
+{
+  listingId: number;
+  productId: number;
+  price: number;
+  listingCurrencyCode: string;
+  deliveryPerListing?: number | null;
+  deliveryPrice?: number | null;
+  basketLimit?: number;
+  bundleId?: number | null;
+  quantity?: number;
+  nBundleProducts?: number;
+  vendorCountryId: number;
+  baseTax?: number;
+  taxPercent?: number;
+  taxBracketEnd?: number | null;
+  salesTax?: number;
+  userCurrencyCode: string;
+  userCountryId: number;
+  discounts?: IDiscount[];
+}
 
-export interface IListingCosts extends ListingCostCalculationData
+type ExcludedProperties = 'property2' | 'property4';
+type ModifiedType = Pick<ListingCostCalculationData, Exclude<keyof ListingCostCalculationData, ExcludedProperties>>;
+
+export interface IListingCosts extends ModifiedType
 {
   exchangeRate: number;
   priceWithTax: number;
+  discountedPrice: number;
 }
 
 export interface IListingInfo extends Product, ListingCostCalculationData
