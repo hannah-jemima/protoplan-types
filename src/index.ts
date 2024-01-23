@@ -106,8 +106,8 @@ export interface ListingCostCalculationData
   productId: number;
   price: number;
   listingCurrencyCode: string;
-  deliveryPerListing?: number;
-  deliveryPrice?: number;
+  deliveryPerListing?: number | null;
+  deliveryPrice?: number | null;
   basketLimit?: number;
   bundleId?: number | null;
   quantity?: number;
@@ -115,7 +115,7 @@ export interface ListingCostCalculationData
   vendorCountryId: number;
   baseTax?: number;
   taxPercent?: number;
-  taxBracketEnd?: number;
+  taxBracketEnd?: number | null;
   salesTax?: number;
   userCurrencyCode: string;
   userCountryId: number;

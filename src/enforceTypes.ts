@@ -7,7 +7,7 @@ interface IEnforceTypesBase
   baseTax?: number,
   taxPercent?: number,
   salesTax?: number,
-  deliveryPrice?: number,
+  deliveryPrice?: number | null,
   exchangeRate?: number,
   amount?: number,
   amountUnit?: string,
