@@ -299,6 +299,8 @@ export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
 export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostCalculationData>
 {
   doseUnit: string;
+  suppId: number;
+  suppName: string;
 }
 
 export type TDosingRowData = IDosingInfo & Partial<IDosingCosts>;
