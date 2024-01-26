@@ -208,7 +208,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
   currencyId: number;
   url: string;
   userId?: number | null;
-  deliveryCountryId: number | null;
+  deliveryCountryId?: number | null;
   listingCurrencySymbol: string;
   deliveryPriceEstimated: boolean;
   basketLimitEstimated: boolean;

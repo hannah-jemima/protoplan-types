@@ -1,6 +1,6 @@
 {
   "name": "@protoplan/types",
-  "version": "62.0.0",
+  "version": "63.0.0",
   "description": "",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
