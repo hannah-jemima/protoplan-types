@@ -36,11 +36,11 @@ export interface Product extends Amount
   productName: string;
   brandName: string;
   amountUnit: string;
-  recDose: number | null;
-  recDoseUnitId: number | null;
-  recDoseUnit: string | null;
+  recDose?: number | null;
+  recDoseUnitId?: number | null;
+  recDoseUnit?: string | null;
   formId: number;
-  userId: number | null;
+  userId?: number | null;
 }
 
 export interface IProductInfo extends Product
@@ -207,7 +207,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
   inaccessible?: boolean;
   currencyId: number;
   url: string;
-  userId: number | null;
+  userId?: number | null;
   deliveryCountryId: number | null;
   listingCurrencySymbol: string;
   deliveryPriceEstimated: boolean;
