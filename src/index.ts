@@ -189,32 +189,7 @@ export interface IBundleSaving
   bundleSaving: number;
 }
 
-export interface ListingCostCalculationData2
-{
-  listingId: number;
-  productId: number;
-  price: number;
-  listingCurrencyCode: string;
-  deliveryPerListing?: number | null;
-  deliveryPrice?: number | null;
-  basketLimit?: number;
-  bundleId?: number | null;
-  quantity?: number;
-  nBundleProducts?: number;
-  vendorCountryId: number;
-  baseTax?: number;
-  taxPercent?: number;
-  taxBracketEnd?: number | null;
-  salesTax?: number;
-  userCurrencyCode: string;
-  userCountryId: number;
-  discounts?: IDiscount[];
-}
-
-type ExcludedProperties = 'property2' | 'property4';
-type ModifiedType = Pick<ListingCostCalculationData, Exclude<keyof ListingCostCalculationData, ExcludedProperties>>;
-
-export interface IListingCosts extends ModifiedType
+export interface IListingCosts extends ListingCostCalculationData
 {
   exchangeRate: number;
   priceWithTax: number;
@@ -225,7 +200,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
 {
   listingName: string;
   amountUnit: string;
-  scrapeTime: Date | null;
+  scrapeTime?: Date | null;
   vendorId: number;
   vendorName: string;
   vendorInfo: string | null;
@@ -299,8 +274,6 @@ export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
 export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostCalculationData>
 {
   doseUnit: string;
-  suppId: number;
-  suppName: string;
 }
 
 export type TDosingRowData = IDosingInfo & Partial<IDosingCosts>;
@@ -314,6 +287,8 @@ export interface IDosingRowState
 export interface IDosingRow extends TDosingRowData, Partial<Product>, IDosingRowState
 {
   dosingId: number;
+  suppId: number;
+  suppName: string;
 }
 
 export interface ISaving
