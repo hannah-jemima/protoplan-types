@@ -203,7 +203,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
   scrapeTime?: Date | null;
   vendorId: number;
   vendorName: string;
-  vendorInfo: string | null;
+  vendorInfo?: string | null;
   inaccessible: boolean;
   currencyId: number;
   url: string;
