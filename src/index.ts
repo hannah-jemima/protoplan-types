@@ -204,7 +204,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
   vendorId: number;
   vendorName: string;
   vendorInfo?: string | null;
-  inaccessible: boolean;
+  inaccessible?: boolean;
   currencyId: number;
   url: string;
   userId: number | null;
