@@ -210,9 +210,9 @@ export interface IListingInfo extends Product, ListingCostCalculationData
   userId?: number | null;
   deliveryCountryId?: number | null;
   listingCurrencySymbol: string;
-  deliveryPriceEstimated: boolean;
-  basketLimitEstimated: boolean;
-  taxEstimated: boolean;
+  deliveryPriceEstimated?: boolean;
+  basketLimitEstimated?: boolean;
+  taxEstimated?: boolean;
 }
 
 export type TListingTableRow = IListingCosts & IListingInfo;
