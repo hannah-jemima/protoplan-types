@@ -17,7 +17,7 @@ export interface ICurrency
 {
   currencyId: number,
   code: string,
-  symbol: string | null
+  symbol?: string
 }
 
 export interface ICountry
@@ -36,11 +36,11 @@ export interface Product extends Amount
   productName: string;
   brandName: string;
   amountUnit: string;
-  recDose?: number | null;
-  recDoseUnitId?: number | null;
-  recDoseUnit?: string | null;
+  recDose?: number;
+  recDoseUnitId?: number;
+  recDoseUnit?: string;
   formId: number;
-  userId?: number | null;
+  userId?: number;
 }
 
 export interface IProductInfo extends Product
@@ -73,22 +73,22 @@ export interface IListingBase extends IDiscountInit, Amount
   productId: number,
   productName: string,
   amountUnit: string,
-  recDoseUnitId: number | null,
-  recDoseUnit: string | null,
+  recDoseUnitId?: number,
+  recDoseUnit?: string,
   formId: number,
   vendorId: number,
   vendorName: string,
-  vendorInfo: string | null;
-  vendorScrapeTime: Date | null,
+  vendorInfo?: string;
+  vendorScrapeTime?: Date,
   price: number,
-  scrapedPrice: number | null,
-  scrapeTime: Date | null,
+  scrapedPrice?: number,
+  scrapeTime?: Date,
   deliveryPerListing: number,
   vendorCountryId: number,
   vendorCurrencyCode: string,
-  listingCurrencyCode: string | null,
-  vendorCurrencySymbol: string | null,
-  listingCurrencySymbol: string | null,
+  listingCurrencyCode?: string,
+  vendorCurrencySymbol?: string,
+  listingCurrencySymbol?: string,
   url: string,
   deliveryCountryId: number,
   currencyId: number,
@@ -97,7 +97,7 @@ export interface IListingBase extends IDiscountInit, Amount
 
 export interface IListingInit extends IListingBase
 {
-  inaccessible: number | null
+  inaccessible?: number
 }
 
 export interface ListingCostCalculationData
@@ -106,16 +106,16 @@ export interface ListingCostCalculationData
   productId: number;
   price: number;
   listingCurrencyCode: string;
-  deliveryPerListing?: number | null;
-  deliveryPrice?: number | null;
+  deliveryPerListing?: number;
+  deliveryPrice?: number;
   basketLimit?: number;
-  bundleId?: number | null;
+  bundleId?: number;
   quantity?: number;
   nBundleProducts?: number;
   vendorCountryId: number;
   baseTax?: number;
   taxPercent?: number;
-  taxBracketEnd?: number | null;
+  taxBracketEnd?: number;
   salesTax?: number;
   userCurrencyCode: string;
   userCountryId: number;
@@ -126,15 +126,15 @@ export interface IListingForUserProps
 {
   exchangeRate: number,
   deliveryPrice: number,
-  basketLimit: number | null,
+  basketLimit?: number,
   userCountryId: number,
   userCurrencyCode: string,
-  listingBaseTax: number | null,
-  listingTaxPercent: number | null,
-  listingTaxBracketEnd: number | null,
-  vendorBaseTax: number | null,
-  vendorTaxPercent: number | null,
-  vendorTaxBracketEnd: number | null,
+  listingBaseTax?: number,
+  listingTaxPercent?: number,
+  listingTaxBracketEnd?: number,
+  vendorBaseTax?: number,
+  vendorTaxPercent?: number,
+  vendorTaxBracketEnd?: number,
   salesTax: number,
   deliveryProfileId: number
 }
@@ -200,15 +200,15 @@ export interface IListingInfo extends Product, ListingCostCalculationData
 {
   listingName: string;
   amountUnit: string;
-  scrapeTime?: Date | null;
+  scrapeTime?: Date;
   vendorId: number;
   vendorName: string;
-  vendorInfo?: string | null;
+  vendorInfo?: string;
   inaccessible?: boolean;
   currencyId: number;
   url: string;
-  userId?: number | null;
-  deliveryCountryId?: number | null;
+  userId?: number;
+  deliveryCountryId?: number;
   listingCurrencySymbol: string;
   deliveryPriceEstimated?: boolean;
   basketLimitEstimated?: boolean;
@@ -223,8 +223,8 @@ export interface NewListing
   productId: number,
   vendorId: number,
   vendorName: string,
-  price: number | null,
-  currencyId: number | null | undefined,
+  price?: number,
+  currencyId?: number,
   url: string,
   bundleProducts: { productId: number, quantity: number }[]
 }
@@ -235,7 +235,7 @@ export interface Vendor
   name: string;
   countryId: number;
   scrapeTime: Date;
-  vendorTaxPercent: number | null;
+  vendorTaxPercent?: number;
 }
 
 export interface Dosing
@@ -311,13 +311,13 @@ export interface IRef
   refId: number;
   title: string;
   date: Date;
-  timestamp: string | null;
+  timestamp?: string;
 }
 
 export interface IBookRef extends IRef
 {
   bookId: number;
-  pageNo: number | null;
+  pageNo?: number;
   bookFormat: string;
 }
 
@@ -352,7 +352,7 @@ export interface IUnit
 export interface IUnitConversion
 {
   unitConversionId: number;
-  productId: number | null;
+  productId?: number;
   fromUnitId: number;
   toUnitId: number;
   factor: number;
@@ -364,18 +364,18 @@ export interface IUnitConversion
 export interface IDiscountInit
 {
   discountId: number,
-  discountTitle: string | null,
+  discountTitle?: string,
   savingPercent: number,
-  discountDesc: string | null,
+  discountDesc?: string,
   discountCompounds: number
 }
 
 export interface IDiscountBase
 {
   discountId: number,
-  title: string | null,
+  title?: string,
   savingPercent: number,
-  desc: string | null,
+  desc?: string,
 }
 
 export interface IDiscount extends IDiscountBase
@@ -396,6 +396,6 @@ export enum OrderReminderFrequency
 export interface IOrderReminder
 {
   active?: boolean,
-  date?: Date | null,
+  date?: Date,
   frequency?: OrderReminderFrequency
 }
