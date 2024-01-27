@@ -2,15 +2,15 @@ import { IBundleSaving, IDiscount, TSavingRow } from ".";
 
 interface IEnforceTypesBase
 {
-  price?: number,
-  discountedPrice?: number,
-  baseTax?: number,
-  taxPercent?: number,
-  salesTax?: number,
+  price?: number | null,
+  discountedPrice?: number | null,
+  baseTax?: number | null,
+  taxPercent?: number | null,
+  salesTax?: number | null,
   deliveryPrice?: number | null,
-  exchangeRate?: number,
-  amount?: number,
-  amountUnit?: string,
+  exchangeRate?: number | null,
+  amount?: number | null,
+  amountUnit?: string | null,
   scrapeTime?: Date | null,
   basketLimit?: number | null
 }
@@ -72,7 +72,7 @@ function asNumberOrUndefined(prop?: number | null)
   return prop !== undefined ? Number(prop) : undefined;
 }
 
-function asStringOrUndefined(prop?: string)
+function asStringOrUndefined(prop?: string | null)
 {
   return prop !== undefined ? String(prop) : undefined;
 }
