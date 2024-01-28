@@ -1,7 +1,10 @@
 import { IBundleSaving, IDiscount, TSavingRow } from ".";
 
-interface IEnforceTypesBase
+
+export interface IEnforcableTypes
 {
+  dose?: number | null,
+  recDose?: number | null,
   price?: number | null,
   discountedPrice?: number | null,
   baseTax?: number | null,
@@ -13,10 +16,6 @@ interface IEnforceTypesBase
   amountUnit?: string | null,
   scrapeTime?: Date | null,
   basketLimit?: number | null
-}
-
-export interface IEnforcableTypes extends IEnforceTypesBase
-{
   inaccessible?: number | null | boolean,
   discounts?: IDiscount[]
 }
@@ -52,6 +51,8 @@ function enforceDosingTypes<T>(row: T & IEnforcableTypes)
 {
   return {
     ...row,
+    dose: asNumberOrUndefined(row.dose),
+    recDose: asNumberOrUndefined(row.recDose),
     price: asNumberOrUndefined(row.price),
     discountedPrice: asNumberOrUndefined(row.discountedPrice),
     baseTax: asNumberOrUndefined(row.baseTax),
