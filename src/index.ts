@@ -276,7 +276,7 @@ export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostC
   doseUnit: string;
 }
 
-export type TDosingRowData = IDosingInfo & Partial<IDosingCosts>;
+export type TDosingRowData = IDosingInfo & Partial<IDosingCosts> & DosingInfo;
 
 export interface IDosingRowState
 {
