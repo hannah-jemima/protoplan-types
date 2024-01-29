@@ -108,7 +108,7 @@ export interface ListingCostCalculationData
   listingCurrencyCode: string;
   deliveryPerListing?: number;
   deliveryPrice?: number;
-  basketLimit?: number;
+  basketLimit: number;
   bundleId?: number;
   quantity?: number;
   nBundleProducts?: number;
