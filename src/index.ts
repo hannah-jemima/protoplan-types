@@ -71,6 +71,7 @@ export interface IListingBase extends IDiscountInit, Amount
   listingName: string,
   brandName: string,
   productId: number,
+  suppId: number,
   productName: string,
   amountUnit: string,
   recDoseUnitId?: number,
