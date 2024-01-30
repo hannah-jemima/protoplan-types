@@ -174,7 +174,7 @@ export interface IBundleSaving
   replaceableRowsCostPerMonth: number;
   replaceableRowsFeesPerMonth: number,
 
-  bundle: (IListingInfo & IDosingCosts)[],
+  bundle: (IListingInfo & IDosingCosts & { suppId: number })[],
 
   bundleCostPerMonth: number;
   bundleFeesPerMonth: number;
