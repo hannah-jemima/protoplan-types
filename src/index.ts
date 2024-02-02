@@ -275,7 +275,7 @@ export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
 export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostCalculationData>
 {
   doseUnit: string;
-  notes?: string;
+  note?: string;
 }
 
 export interface ISaving
