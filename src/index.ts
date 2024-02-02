@@ -275,21 +275,7 @@ export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
 export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostCalculationData>
 {
   doseUnit: string;
-}
-
-export type TDosingRowData = IDosingInfo & Partial<IDosingCosts> & DosingInfo;
-
-export interface IDosingRowState
-{
-  checked?: boolean;
-  priority: number;
-}
-
-export interface IDosingRow extends TDosingRowData, Partial<Product>, IDosingRowState
-{
-  dosingId: number;
-  suppId: number;
-  suppName: string;
+  notes?: string;
 }
 
 export interface ISaving
@@ -399,4 +385,22 @@ export interface IOrderReminder
   active?: boolean,
   date?: Date,
   frequency?: OrderReminderFrequency
+}
+
+
+// Clients
+
+export type TDosingRowData = IDosingInfo & Partial<IDosingCosts> & DosingInfo;
+
+export interface IDosingRowState
+{
+  checked?: boolean;
+  priority: number;
+}
+
+export interface IDosingRow extends TDosingRowData, Partial<Product>, IDosingRowState
+{
+  dosingId: number;
+  suppId: number;
+  suppName: string;
 }
