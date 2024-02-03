@@ -334,6 +334,7 @@ export interface IUnit
   unitId: number;
   name: string;
   formId: number;
+  productId?: number;
 }
 
 export interface IUnitConversion
