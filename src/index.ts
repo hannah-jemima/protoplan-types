@@ -258,10 +258,13 @@ export interface Amount
   amountUnitId: number;
 }
 
-export type TDosingCostCalculationData = ListingCostCalculationData & Dosing & Amount
+export interface DosingCostCalculationData extends ListingCostCalculationData, Dosing, Amount
+{
+  factor: number
+}
 
 
-export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
+export interface IDosingCosts extends IListingCosts, DosingCostCalculationData
 {
   productsPerMonth: number;
   listingsPerMonth: number;
@@ -272,7 +275,7 @@ export interface IDosingCosts extends IListingCosts, TDosingCostCalculationData
   feesPerMonth: number;
 }
 
-export interface IDosingInfo extends Partial<IListingInfo>, Partial<TDosingCostCalculationData>
+export interface IDosingInfo extends Partial<IListingInfo>, Partial<DosingCostCalculationData>
 {
   doseUnit: string;
   note?: string;
