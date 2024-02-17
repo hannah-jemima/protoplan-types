@@ -260,7 +260,8 @@ export interface Amount
 
 export interface DosingCostCalculationData extends ListingCostCalculationData, Dosing, Amount
 {
-  factor: number
+  factor: number,
+  priority: number;
 }
 
 
@@ -399,7 +400,6 @@ export type TDosingRowData = IDosingInfo & Partial<IDosingCosts> & DosingInfo;
 export interface IDosingRowState
 {
   checked?: boolean;
-  priority: number;
 }
 
 export interface IDosingRow extends TDosingRowData, Partial<Product>, IDosingRowState
