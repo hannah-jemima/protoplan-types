@@ -1,9 +1,9 @@
-import { enforceDosingsTypes, enforceListingTypes, IEnforcableTypes, IEnforcableProps } from './enforceTypes.js';
+import { enforceDosingsTypes, enforceListingTypes, EnforcableTypes, EnforcableProps } from './enforceTypes.js';
 export {
   enforceDosingsTypes,
   enforceListingTypes,
-  IEnforcableTypes,
-  IEnforcableProps };
+  EnforcableTypes as IEnforcableTypes,
+  EnforcableProps as IEnforcableProps };
 
 export interface IOption
 {

@@ -1,7 +1,7 @@
 import { IBundleSaving, IDiscount, TSavingRow } from ".";
 
 
-export interface IEnforcableTypes
+export interface EnforcableTypes
 {
   dose?: number | null,
   recDose?: number | null,
@@ -9,6 +9,7 @@ export interface IEnforcableTypes
   discountedPrice?: number | null,
   baseTax?: number | null,
   taxPercent?: number | null,
+  taxBracketEnd?: number | null,
   salesTax?: number | null,
   deliveryPrice?: number | null,
   exchangeRate?: number | null,
@@ -20,14 +21,14 @@ export interface IEnforcableTypes
   discounts?: IDiscount[]
 }
 
-export interface IEnforcableProps extends IEnforcableTypes
+export interface EnforcableProps extends EnforcableTypes
 {
   listingSavings?: TSavingRow[] | null,
   bundleSavings?: IBundleSaving[] | null
 }
 
 
-export function enforceListingTypes<T>(listings: (T & IEnforcableProps & { priceWithTax: number })[])
+export function enforceListingTypes<T>(listings: (T & EnforcableProps & { priceWithTax: number })[])
 {
   return enforceDosingsTypes(listings).map(l => ({
     ...l,
@@ -35,7 +36,7 @@ export function enforceListingTypes<T>(listings: (T & IEnforcableProps & { price
 }
 
 
-export function enforceDosingsTypes<T>(rows: (T & IEnforcableProps)[])
+export function enforceDosingsTypes<T>(rows: (T & EnforcableProps)[])
 {
   return rows.map(r => ({
     ...enforceDosingTypes(r),
@@ -47,7 +48,7 @@ export function enforceDosingsTypes<T>(rows: (T & IEnforcableProps)[])
       leftoverProducts: bs.leftoverProducts.map(r => enforceDosingTypes(r)) })) as IBundleSaving[] | undefined}));
 }
 
-function enforceDosingTypes<T>(row: T & IEnforcableTypes)
+function enforceDosingTypes<T>(row: T & EnforcableTypes)
 {
   return {
     ...row,
@@ -57,6 +58,7 @@ function enforceDosingTypes<T>(row: T & IEnforcableTypes)
     discountedPrice: asNumberOrUndefined(row.discountedPrice),
     baseTax: asNumberOrUndefined(row.baseTax),
     taxPercent: asNumberOrUndefined(row.taxPercent),
+    taxBracketEnd: asNumberOrUndefined(row.taxBracketEnd),
     salesTax: asNumberOrUndefined(row.salesTax),
     deliveryPrice: asNumberOrUndefined(row.deliveryPrice),
     exchangeRate: asNumberOrUndefined(row.exchangeRate),
@@ -68,9 +70,16 @@ function enforceDosingTypes<T>(row: T & IEnforcableTypes)
     discounts: row.discounts?.map(d => ({ ...d, savingPercent: Number(d.savingPercent) })) };
 }
 
-function asNumberOrUndefined(prop?: number | null)
+function asNumberOrUndefined(prop?: number | null | string)
 {
-  return prop !== undefined ? Number(prop) : undefined;
+  if(typeof(prop) === "string")
+    return parseFloat(prop) || undefined;
+  else if(prop === null)
+    return undefined;
+  else if(prop === undefined)
+    return undefined;
+  else
+    return Number(prop);
 }
 
 function asStringOrUndefined(prop?: string | null)
