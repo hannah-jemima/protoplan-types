@@ -170,18 +170,18 @@ export interface IBundleSaving
 {
   savingId: number
 
-  replaceableRows: (IDosingInfo & IListingInfo & IDosingCosts & { dosingId: number })[];
+  replaceableRows: (IDosingInfo & IListingInfo & DosingCosts & { dosingId: number })[];
 
   replaceableRowsCostPerMonth: number;
   replaceableRowsFeesPerMonth: number,
 
-  bundle: (IListingInfo & IDosingCosts & { suppId: number })[],
+  bundle: (IListingInfo & DosingCosts & { suppId: number })[],
 
   bundleCostPerMonth: number;
   bundleFeesPerMonth: number;
 
   // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
-  leftoverProducts: (IDosingInfo & IListingInfo & IDosingCosts & { dosingId: number })[];
+  leftoverProducts: (IDosingInfo & IListingInfo & DosingCosts & { dosingId: number })[];
 
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
@@ -261,11 +261,10 @@ export interface Amount
 export interface DosingCostCalculationData extends ListingCostCalculationData, Dosing, Amount
 {
   factor: number,
-  priority: number;
 }
 
 
-export interface IDosingCosts extends IListingCosts, DosingCostCalculationData
+export interface DosingCosts extends IListingCosts, DosingCostCalculationData
 {
   productsPerMonth: number;
   listingsPerMonth: number;
@@ -288,7 +287,7 @@ export interface ISaving
   saving: number
 }
 
-export type TSavingRow = ISaving & IDosingInfo & IDosingCosts & TListingTableRow;
+export type TSavingRow = ISaving & IDosingInfo & DosingCosts & TListingTableRow;
 
 
 export declare interface ITopic
@@ -395,16 +394,17 @@ export interface IOrderReminder
 
 // Clients
 
-export type TDosingRowData = IDosingInfo & Partial<IDosingCosts> & DosingInfo;
+export type DosingRowData = IDosingInfo & Partial<DosingCosts> & DosingInfo;
 
-export interface IDosingRowState
+export interface DosingRowState
 {
   checked?: boolean;
 }
 
-export interface IDosingRow extends TDosingRowData, Partial<Product>, IDosingRowState
+export interface IDosingRow extends DosingRowData, Partial<Product>, DosingRowState
 {
   dosingId: number;
   suppId: number;
   suppName: string;
+  priority: number;
 }
