@@ -73,7 +73,7 @@ function enforceDosingTypes<T>(row: T & EnforcableTypes)
 function asNumberOrUndefined(prop?: number | null | string)
 {
   if(typeof(prop) === "string")
-    return parseFloat(prop) || undefined;
+    return parseFloat(prop) || (parseFloat(prop) === 0 ? 0 : undefined);
   else if(prop === null)
     return undefined;
   else if(prop === undefined)
