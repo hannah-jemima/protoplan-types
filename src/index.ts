@@ -221,13 +221,13 @@ export type TListingTableRow = IListingCosts & IListingInfo;
 export interface NewListing
 {
   name: string,
-  productId: number,
+  productId?: number,
   vendorId: number,
   vendorName: string,
   price?: number,
   currencyId?: number,
   url: string,
-  bundleProducts: { productId: number, quantity: number }[]
+  bundleProducts?: { productId: number, quantity: number }[]
 }
 
 export interface Vendor
