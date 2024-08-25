@@ -119,6 +119,7 @@ export interface ListingCostCalculationData
   taxBracketEnd?: number;
   salesTax?: number;
   userCurrencyCode: string;
+  protocolCurrencyCode?: string;
   userCountryId: number;
   discounts?: IDiscount[];
 }
@@ -130,6 +131,7 @@ export interface IListingForUserProps
   basketLimit?: number,
   userCountryId: number,
   userCurrencyCode: string,
+  protocolCurrencyCode?: string,
   listingBaseTax?: number,
   listingTaxPercent?: number,
   listingTaxBracketEnd?: number,
