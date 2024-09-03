@@ -114,7 +114,7 @@ export interface ListingCostCalculationData
   quantity?: number;
   nBundleProducts?: number;
   vendorCountryId: number;
-  baseTax?: number;
+  baseTax: number;
   taxPercent?: number;
   taxBracketEnd?: number;
   salesTax?: number;
