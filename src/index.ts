@@ -172,18 +172,18 @@ export interface IBundleSaving
 {
   savingId: number
 
-  replaceableRows: (IDosingInfo & IListingInfo & DosingCosts & { dosingId: number })[];
+  replaceableRows: (IDosingInfo & ListingInfo & DosingCosts & { dosingId: number })[];
 
   replaceableRowsCostPerMonth: number;
   replaceableRowsFeesPerMonth: number,
 
-  bundle: (IListingInfo & DosingCosts & { suppId: number })[],
+  bundle: (ListingInfo & DosingCosts & { suppId: number })[],
 
   bundleCostPerMonth: number;
   bundleFeesPerMonth: number;
 
   // reduced nProductsPerMonth (nProductsOutsideBundlePerMonth) satisfied by lowering daysPerMonth
-  leftoverProducts: (IDosingInfo & IListingInfo & DosingCosts & { dosingId: number })[];
+  leftoverProducts: (IDosingInfo & ListingInfo & DosingCosts & { dosingId: number })[];
 
   leftoverProductsCostPerMonth: number;
   leftoverProductsFeesPerMonth: number;
@@ -192,14 +192,15 @@ export interface IBundleSaving
   bundleSaving: number;
 }
 
-export interface IListingCosts extends ListingCostCalculationData
+export interface ListingCosts extends ListingCostCalculationData
 {
   exchangeRate: number;
-  priceWithTax: number;
+  priceWithFees: number;
+  priceWithoutFees: number;
   discountedPrice: number;
 }
 
-export interface IListingInfo extends Product, ListingCostCalculationData
+export interface ListingInfo extends Product, ListingCostCalculationData
 {
   listingName: string;
   amountUnit: string;
@@ -218,7 +219,7 @@ export interface IListingInfo extends Product, ListingCostCalculationData
   taxEstimated?: boolean;
 }
 
-export type TListingTableRow = IListingCosts & IListingInfo;
+export type TListingTableRow = ListingCosts & ListingInfo;
 
 export interface NewListing
 {
@@ -266,18 +267,18 @@ export interface DosingCostCalculationData extends ListingCostCalculationData, D
 }
 
 
-export interface DosingCosts extends IListingCosts, DosingCostCalculationData
+export interface DosingCosts extends ListingCosts, DosingCostCalculationData
 {
   productsPerMonth: number;
   listingsPerMonth: number;
   repurchase: number;
-  costPerMonth: number;
+  costPerMonthWithFees: number;
+  costPerMonthWithoutFees: number;
   maxListingsPerOrder: number;
   ordersPerMonth: number;
-  feesPerMonth: number;
 }
 
-export interface IDosingInfo extends Partial<IListingInfo>, Partial<DosingCostCalculationData>
+export interface IDosingInfo extends Partial<ListingInfo>, Partial<DosingCostCalculationData>
 {
   doseUnit: string;
   note?: string;
