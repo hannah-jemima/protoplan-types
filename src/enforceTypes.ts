@@ -28,11 +28,11 @@ export interface EnforcableProps extends EnforcableTypes
 }
 
 
-export function enforceListingTypes<T>(listings: (T & EnforcableProps & { priceWithTax: number })[])
+export function enforceListingTypes<T>(listings: (T & EnforcableProps & { priceWithFees: number })[])
 {
   return enforceDosingsTypes(listings).map(l => ({
     ...l,
-    priceWithTax: Number(l.priceWithTax) }));
+    priceWithFees: Number(l.priceWithFees) }));
 }
 
 
