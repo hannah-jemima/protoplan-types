@@ -214,6 +214,7 @@ export interface ListingInfo extends Product, ListingCostCalculationData
   url: string;
   userId?: number;
   deliveryCountryId?: number;
+  vendorCurrencySymbol: string;
   listingCurrencySymbol: string;
   deliveryPriceEstimated?: boolean;
   basketLimitEstimated?: boolean;
