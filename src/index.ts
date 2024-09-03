@@ -106,6 +106,7 @@ export interface ListingCostCalculationData
   listingId: number;
   productId: number;
   price: number;
+  vendorCurrencyCode: string;
   listingCurrencyCode: string;
   deliveryPerListing?: number;
   deliveryPrice?: number;
