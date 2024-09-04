@@ -199,6 +199,7 @@ export interface ListingCosts extends ListingCostCalculationData
   priceWithFees: number;
   priceWithoutFees: number;
   discountedPrice: number;
+  orderFeesPerListing: number;
 }
 
 export interface ListingInfo extends Product, ListingCostCalculationData
