@@ -18,7 +18,8 @@ export interface EnforcableTypes
   scrapeTime?: Date | null,
   basketLimit?: number | null
   inaccessible?: number | null | boolean,
-  discounts?: IDiscount[]
+  discounts?: IDiscount[],
+  deliveryPerListing?: number | null
 }
 
 export interface EnforcableProps extends EnforcableTypes
@@ -67,7 +68,8 @@ function enforceDosingTypes<T>(row: T & EnforcableTypes)
     scrapeTime: asDateOrUndefined(row.scrapeTime),
     basketLimit: asNumberOrUndefined(row.basketLimit),
     inaccessible: row.inaccessible === 1,
-    discounts: row.discounts?.map(d => ({ ...d, savingPercent: Number(d.savingPercent) })) };
+    discounts: row.discounts?.map(d => ({ ...d, savingPercent: Number(d.savingPercent),
+    deliveryPerListing: asNumberOrUndefined(row.deliveryPerListing) })) };
 }
 
 function asNumberOrUndefined(prop?: number | null | string)
