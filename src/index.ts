@@ -65,42 +65,6 @@ export interface NewProduct extends Partial<Amount>
   activeIngredientPerRecDoseUnitId?: number,
 }
 
-export interface IListingBase extends IDiscountInit, Amount
-{
-  listingId: number,
-  listingName: string,
-  brandName: string,
-  productId: number,
-  suppId: number,
-  productName: string,
-  amountUnit: string,
-  recDoseUnitId?: number,
-  recDoseUnit?: string,
-  formId: number,
-  vendorId: number,
-  vendorName: string,
-  vendorInfo?: string;
-  vendorScrapeTime?: Date,
-  price: number,
-  scrapedPrice?: number,
-  scrapeTime?: Date,
-  deliveryPerListing: number,
-  vendorCountryId: number,
-  vendorCurrencyCode: string,
-  listingCurrencyCode?: string,
-  vendorCurrencySymbol?: string,
-  listingCurrencySymbol?: string,
-  url: string,
-  deliveryCountryId: number,
-  currencyId: number,
-  userId: number,
-}
-
-export interface IListingInit extends IListingBase
-{
-  inaccessible?: number
-}
-
 export interface ListingCostCalculationData
 {
   listingId: number;
@@ -124,49 +88,6 @@ export interface ListingCostCalculationData
   userCountryId: number;
   discounts?: IDiscount[];
 }
-
-export interface IListingForUserProps
-{
-  exchangeRate: number,
-  deliveryPrice: number,
-  basketLimit?: number,
-  userCountryId: number,
-  userCurrencyCode: string,
-  protocolCurrencyCode?: string,
-  listingBaseTax?: number,
-  listingTaxPercent?: number,
-  listingTaxBracketEnd?: number,
-  vendorBaseTax?: number,
-  vendorTaxPercent?: number,
-  vendorTaxBracketEnd?: number,
-  salesTax: number,
-  deliveryProfileId: number
-}
-
-export type TListingForUserInit = IListingInit & IListingForUserProps
-
-
-export interface IBundleProps
-{
-  bundleId: number,
-  quantity: number,
-  nBundleProducts: number,
-
-  includedProductId: number,
-  includedProductAmount: number,
-  includedProductName: string,
-  includedProductFormId: number,
-  includedProductBrandName: string,
-  includedProductAmountUnitId: number,
-  includedProductAmountUnit: string,
-  includedProductRecDoseUnitId: number,
-  includedProductRecDoseUnit: string,
-}
-
-export type TBundleListingInit = IListingInit & IBundleProps;
-
-
-export type TBundleListingForUserInit = TBundleListingInit & TListingForUserInit
 
 
 export interface IBundleSaving
@@ -199,6 +120,8 @@ export interface ListingCosts extends ListingCostCalculationData
   priceWithFees: number;
   priceWithoutFees: number;
   discountedPrice: number;
+  maxListingsPerOrder: number;
+  feesPerOrder: number;
   orderFeesPerListing: number;
 }
 
@@ -242,7 +165,6 @@ export interface Vendor
   name: string;
   countryId: number;
   scrapeTime: Date;
-  vendorTaxPercent?: number;
 }
 
 export interface Dosing
@@ -357,15 +279,6 @@ export interface IUnitConversion
 
 
 
-
-export interface IDiscountInit
-{
-  discountId: number,
-  discountTitle?: string,
-  savingPercent: number,
-  discountDesc?: string,
-  discountCompounds: number
-}
 
 export interface IDiscountBase
 {
