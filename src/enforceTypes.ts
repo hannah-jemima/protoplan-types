@@ -22,7 +22,7 @@ export interface EnforcableListingTypes
   deliveryPerListing?: number | null,
 }
 
-export interface EnforcableDosingTypesWithoutSavings extends EnforcableListingTypes
+interface EnforcableDosingTypesWithoutSavings extends EnforcableListingTypes
 {
   dose?: number | null,
 }
@@ -94,7 +94,7 @@ export function enforceListingTypes<T>(r: T & EnforcableListingTypes)
     deliveryPerListing: asNumberOrUndefined(r.deliveryPerListing) })) };
 }
 
-function asNumberOrUndefined(prop?: number | null | string)
+export function asNumberOrUndefined(prop?: number | null | string)
 {
   if(typeof(prop) === "string")
     return parseFloat(prop) || (parseFloat(prop) === 0 ? 0 : undefined);

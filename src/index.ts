@@ -1,7 +1,17 @@
-import { enforceDosingsTypes, enforceListingTypes, EnforcableListingTypes, EnforcableDosingTypes } from './enforceTypes.js';
-export {
-  enforceDosingsTypes,
+import {
+  asNumberOrUndefined,
   enforceListingTypes,
+  enforceDosingsTypes,
+  enforceProtocolInfoTypes,
+  enforceProtocolWithDosingsTypes,
+  EnforcableListingTypes,
+  EnforcableDosingTypes } from './enforceTypes.js';
+export {
+  asNumberOrUndefined,
+  enforceListingTypes,
+  enforceDosingsTypes,
+  enforceProtocolInfoTypes,
+  enforceProtocolWithDosingsTypes,
   EnforcableListingTypes,
   EnforcableDosingTypes };
 
