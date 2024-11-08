@@ -1,9 +1,9 @@
-import { enforceDosingsTypes, enforceListingTypes, EnforcableTypes, EnforcableProps } from './enforceTypes.js';
+import { enforceDosingsTypes, enforceListingTypes, EnforcableListingTypes, EnforcableDosingTypes } from './enforceTypes.js';
 export {
   enforceDosingsTypes,
   enforceListingTypes,
-  EnforcableTypes as IEnforcableTypes,
-  EnforcableProps as IEnforcableProps };
+  EnforcableListingTypes,
+  EnforcableDosingTypes };
 
 export interface IOption
 {
@@ -326,4 +326,39 @@ export interface IDosingRow extends DosingRowData, Partial<Product>, DosingRowSt
   suppId: number;
   suppName: string;
   priority: number;
+}
+
+export interface ProtocolInfoRes
+{
+  protocolId: number,
+  name: string,
+  orderReminderActive: boolean,
+  edit?: boolean,
+  public: boolean,
+  userId: number,
+  username: string,
+  budget?: number,
+  sharedWith: { username: string, userId: number, edit: boolean }[],
+  removedRows?: boolean,
+  currencyId: number,
+  currencyCode: string,
+  currencySymbol: string,
+  folderId?: number,
+  fees: boolean
+}
+
+export interface DosingRowWithSavings extends IDosingRow
+{
+  listingSavings?: TSavingRow[];
+  bundleSavings?: IBundleSaving[];   // duplicate bundle saving data for every protocol row bundle replaces (for now)
+}
+
+export interface ProtocolDosingRow extends DosingRowWithSavings
+{
+  unitOptions: IOption[];
+}
+
+export interface ProtocolWithDosingsRes extends ProtocolInfoRes
+{
+  dosings: ProtocolDosingRow[]
 }
