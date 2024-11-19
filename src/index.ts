@@ -349,7 +349,6 @@ export interface ProtocolInfoRes
   username: string,
   budget?: number,
   sharedWith: { username: string, userId: number, edit: boolean }[],
-  removedRows?: boolean,
   currencyId: number,
   currencyCode: string,
   currencySymbol: string,
