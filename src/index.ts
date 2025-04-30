@@ -169,14 +169,6 @@ export interface NewListing
   bundleProducts?: { productId: number, quantity: number }[]
 }
 
-export interface Vendor
-{
-  vendorId: number;
-  name: string;
-  countryId: number;
-  scrapeTime: Date;
-}
-
 export interface Dosing
 {
   dose: number;
